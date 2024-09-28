@@ -1,12 +1,12 @@
 # Identificateurs (noms des variables) en c++
 
-|`james_bond_007`  | Oui | |
+|`james_bond_007`  | Oui |
 |`james_bond__007` | Oui | Plusieurs _ peuvent se suivre |
-|`sOs`             | Oui | |
+|`sOs`             | Oui |
 |`SOS`             | Oui | Vu que C++ tient compte de la casse, 5) est un identificateur différent de 6) |
 |`_007`            | Oui | Un identificateur peut commencer par _ |
-|`__007`           | Oui | |
-|`_007_`           | Oui | |
+|`__007`           | Oui |
+|`_007_`           | Oui |
 |`INT`             | Oui | Déconseillé toutefois ! |
 |`_`               | Oui | … mais pas des plus parlants (!) |
 
