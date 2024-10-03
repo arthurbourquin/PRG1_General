@@ -28,19 +28,20 @@ Hauteur du triangle (h > 0) : 7
 
 using namespace std;
 
-int main {
+int main(void) {
 
-    int h = 0;
+   int h = 0;
 
-    while (h <= 0)
-        cout << "Hauteur du triangle (h > 0) : ";
-        cin >> h;
-    
-    for (i = 0; i < h; i++)
-        for(j = 0; j < h * 2 - 1; j++)
-            cout << " ";
-        for(j = 0; j < i * 2 + 1; j++)
-            cout << "*";
+   while (h <= 0)
+      cout << "Hauteur du triangle (h > 0) : ";  
+      cin >> h;
+
+   int i;
+   for (int i = 0; i < h; i++)
+      for(int j = 0; j < h * 2 - 1; j++)
+         cout << " ";
+      for(int j = 0; j < i * 2 + 1; j++)
+         cout << "*";
 
 }
 
@@ -61,23 +62,23 @@ const char blanc = ' ';
 
 int main() {
 
-   int hauteur;
-   do {
-      cout << "Hauteur du triangle (h > 0) : ";
-      cin >> hauteur;
-   } while (hauteur <= 0);
+int hauteur;
+do {
+   cout << "Hauteur du triangle (h > 0) : ";
+   cin >> hauteur;
+} while (hauteur <= 0);
 
+cout << endl;
+for (int ligne = 0; ligne < hauteur; ++ligne) {
+   for (int i = 0; i < hauteur - ligne - 1; ++i)
+      cout << blanc;
+   for (int i = 0; i < 1 + 2 * ligne; ++i)
+      cout << etoile;
+   // la suite est optionnelle, mais logique si le caractère blanc est visible
+   for (int i = 0; i < hauteur - ligne - 1; ++i)
+      cout << blanc;
    cout << endl;
-   for (int ligne = 0; ligne < hauteur; ++ligne) {
-      for (int i = 0; i < hauteur - ligne - 1; ++i)
-         cout << blanc;
-      for (int i = 0; i < 1 + 2 * ligne; ++i)
-         cout << etoile;
-      // la suite est optionnelle, mais logique si le caractère blanc est visible
-      for (int i = 0; i < hauteur - ligne - 1; ++i)
-         cout << blanc;
-      cout << endl;
-   }
+}
 }
 ~~~
 </details>
