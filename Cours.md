@@ -126,21 +126,46 @@ https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests
 
 
 **Incrémentation (décrémentation)**
-`int compteur = 42;`
-`compteur++;`             // compteur vaut 43, postfix
-`++compteur;`             // compteur vaut 44, prefix
-`int pre = ++compteur;`   // compteur vaut 45
-                          // et pre vaut 45
-`int post = compteur++;`  // compteur vaut 46
-                          // mais post vaut 45
+~~~cpp
+int compteur = 42;
+compteur++;              // compteur vaut 43, postfix
+++compteur;              // compteur vaut 44, prefix
+int pre = ++compteur;    // compteur vaut 45
+                         // et pre vaut 45
+int post = compteur++;   // compteur vaut 46
+                         // mais post vaut 45
 
-`int i = 0;`
-`j = (i++ == 0)`
-`// i = 1`
-`// j = 1` (true)
-
+int i = 0;
+j = (i++ == 0)
+// i = 1
+// j = 1 (true)
+~~~
 
 Opérateur trilatéral / ternaire / “vaisseau spatial” / faire A- B
 <=>
 
+# priorité des opérations
+n *= n + 1
+égal
+n = n * (n + 1)
 
+# Google C++ guideline
+
+# Fonctions
+paramètre de la fonction
+paramètre effectif
+comprendre le truc "pas de restriction d'appel si ... conversion implicite si nécessaire"
+## Passage par valeur
+## Passage par référence (pas de copie)
+- variable / constante
+- type
+## Passage par référence constante (pas de copie)
+
+# Conversion
+/!\ Des fois possible, des fois pas /!\ (mais pas compris quand quoi...)
+char a = 65;
+cout << a;
+A
+int a = 'A';
+cout << a;
+65
