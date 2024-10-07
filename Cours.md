@@ -169,3 +169,9 @@ A
 int a = 'A';
 cout << a;
 65
+
+# quitter une fonction
+return a la même fonction qu'un break : ça arrête la fonction
+return d'une fonction void, c'est vraiment encore plus pareil
+à la fin d'une fonction, la dernière accolade ajoute un return
+fonction void et main, pas besoin de return
