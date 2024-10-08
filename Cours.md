@@ -182,8 +182,20 @@ fonction void et main, pas besoin de return
 la variable __doit__ déjà exister, et être de même type
 **passage par référence constante**
 **paramètre effectif**
-**variable locale** **lvalue**
+**variable locale**
+**lvalue**
+**rvalue**
+**variable globale** visible partout                            et   non détruite
+**variable locale**  visible uniquement là où elle est déclarée puis détruite
+**variable static**  visible uniquement là où elle est déclarée mais non détruite
+**variable externe**
+**constante externe** ?
+**qualificateur**
+**valeur**
 **copie**
+**valeur par défaut** (ou ou non selon global ou local?)
+**visibilité** **scope**
+**durée de vie**
 
 **récursivité**
 **cas trivial**
