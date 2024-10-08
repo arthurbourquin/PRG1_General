@@ -4,18 +4,18 @@
 
 using namespace std;
 
-double e = 1;
-double i = 0;
-double d = 1;
-
 int main() {
+
+    int i = 0;
+    double a = 0;
+    double d = 1;
+
     while(true) {
-        for(int j = 0; j < i; j++){
-            d += i;
-            j++;
+        for(int j = 0; j < i; j++) {
+            d++;
         }
-        e += 1 / d;
-        cout << e << endl;
+        a = a + (1 / d);
+        cout << a << endl; // << "i" << i << "d" << d << "a"
         i++;
     }
 }
