@@ -175,3 +175,23 @@ return a la même fonction qu'un break : ça arrête la fonction
 return d'une fonction void, c'est vraiment encore plus pareil
 à la fin d'une fonction, la dernière accolade ajoute un return
 fonction void et main, pas besoin de return
+
+**code appelant**
+**passage par valeur**
+**passage par référence**
+la variable __doit__ déjà exister, et être de même type
+**passage par référence constante**
+**paramètre effectif**
+**variable locale** **lvalue**
+**copie**
+
+**récursivité**
+**cas trivial**
+
+# Librairies
+Fichier principal `.cpp`
+Fichier d'entête `.h`
+Fichier de... `.cpp`
+
+# Boucles
+- `do while(a)` VS `while(true) if(a){break}`, quand utiliser quoi ?? Je sais pas...
