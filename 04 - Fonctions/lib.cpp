@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int saisir(string message, int min, int max){
+int saisir(const string& message, int min, int max){
 
     int saisie;
     do {
