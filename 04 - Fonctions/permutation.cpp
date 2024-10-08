@@ -15,6 +15,7 @@ int main() {
     double a = 7;
     double b = 12;
     double c = 1234;
+    cout << a << " " << b << " " << c << endl;
     permutation(a, b, c);
     cout << a << " " << b << " " << c << endl;
 
