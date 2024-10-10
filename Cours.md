@@ -181,6 +181,7 @@ fonction void et main, pas besoin de return
 **passage par référence**
 la variable __doit__ déjà exister, et être de même type
 **passage par référence constante**
+**passage par pointeur**
 **paramètre effectif**
 **variable locale**
 **lvalue**

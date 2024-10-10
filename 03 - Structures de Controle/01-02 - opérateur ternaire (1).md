@@ -10,6 +10,8 @@ if (a > 0) {
 }
 ~~~
 
+b = a > 0 ? b + a : b - 2 * a;
+
 <details>
 <summary>Solution</summary>
 
