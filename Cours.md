@@ -208,3 +208,11 @@ Fichier de... `.cpp`
 
 # Boucles
 - `do while(a)` VS `while(true) if(a){break}`, quand utiliser quoi ?? Je sais pas...
+# Structure de contrôle
+- switch
+- if else
+- boucles
+  - for
+  - for each
+  - while
+  - do while
