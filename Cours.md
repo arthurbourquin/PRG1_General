@@ -1,107 +1,89 @@
 # PRG1
-Fouad Hanna
-Notes Arthur Bourquin
+C++20
 
+# Lexique des termes
 
-Le cours PRG1 est en C++20
-
-
-#include <iostream>
-#include <cstdlib>
-using namespace std;
-
-int main() { // un programme va toujours commencer par appeler la fonction main
-}
-
-
+**Assemblage**
+- transformation du code objet en code machine exécutable
+**Linkage**
+- édition des liens (regrouper tous les liens, pas pareil que compilation)
+- permet d'associer plusieurs fichiers objets pour créer un exécutable
 **Compilation**
-**Linkage** / édition des liens (regrouper tous les liens, pas pareil que compilation)
-**Assemblage** ??
-
-`.o` (est un objet)
-`g++` ouais.o -o ouais.exe
-
-**compilation basique**
-`g++ 01_HelloWorld.cpp -o 01-HelloWorld.exe` VS `g++ -o 01_HelloWorld.cpp 01-HelloWorld.exe` > différence ?
-**compilation plus sévère**
+`g++ 01_HelloWorld.cpp -o 01-HelloWorld.exe`
+`g++ -o 01_HelloWorld.cpp 01-HelloWorld.exe`
+`g++ -std=c++20 -o for-each for-each.cpp`
 `g++ -std=c++20 -Wall -Wextra -Wconversion (...) ouais.cpp -o ouais.exe`
-
-CLion
-CMakeLists.txt
-
-**Erreurs**
-1. Erreurs de compilation / syntaxe
-2. Erreurs d'édition de liens, exemple, deux fichiers qui ont une fonction de même nom
-3. Erreurs d'exécution, exemple out_of_range, ouais.at(10) quand ouais length < 10
-	int *p;
-	p = nullprt;
-	*p = 42
-Erreur d'exécution, ça fait pas ce qu'on veut (runtime error, runtime parce que "pendant l'exécution" (?))
-4. Erreurs de logique
-
-
-endl : flucher le buffer
-
-
-`main` est un `int` car il retourne une valeur `(EXIT_SUCCESS = 0)`
-à vérifier / comprendre, lié à `cstdlib`
-
-
-Pour debuger on met des points pour qu'il s'arrête et on peut voir "l'état du système"
-
-
-Variable
-`const int a = 6;` // const car ne varie pas
-`int a = 3;`
-`int a = 0;`
-`char a = 'A';`
-`string a = " Coder:";`
-`bool a = true;`
-`auto a = 1;` int
-`auto a = 1.5;` double
-`auto a = 'c'` char
-`auto a = true;` bool
-
-
+- conversion du code source en code objet
 **Objet**
-**Fonction**
-**Méthode**
-**Librairie**
-**Bloc / bloc d'instructions**
-**Object**
-
-
-**Opération**
-`Double a = 5 / 2`
-output:
-`2`
-Car 5 et 2 sont automatiquement interprétées en integer puis placés dans un double
-
-
-**Expression**
-Ce qui renvoie une valeur (opération ou non)
-
-
-**lvalue** et **rvalue**
-Localisation value, Result value
-
-
-**Opérateur d’affectation**
-`=`
-`<<`
-`>>`
-“Trick”
-`cout << x << y`
-`cout << x` devient `cout` puis
-`cout << y` devient `cout` ou `y`?
-
-
-**Pointeur**
-
+**Fonction** bloc de code qui effectue une tâche spécifique
+**Méthode** fonction associée à une classe ou un objet
+**Librairie** fonctions ou classes pré-écrites
+**Bloc / bloc d'instructions** ensemble d'instructions groupées
+**Passage par valeur**
+- copie
+**Passage par référence**
+- pas de copie
+- la valeur doit déjà exister et être de même type
+- la valeur est modifiée
+**Passage par référence constante**
+- pas de copie
+- garantie que l'objet ne sera pas modifié par la fonction
+- clareté du code
+- prise en charge des **rvalues**
+**Passage par pointeur** utilisation d'adresse
+**Code appelant** code qui appelle une fonction
+**Code appelé** code de la fonction
+**Paramètre effectif** argument réel
+**Paramère pas effectif**
+**Variable globale** visible partout et non détruite
+**Variable locale** visible uniquement là où elle est déclarée puis détruite
+**Variable statique** visible uniquement là où elle est déclarée mais non détruite
+**Variable externe**
+**Constante externe**
+**Qualificateur** ??
+**Valeur**
+**Valeur par défaut** valeur utilisée par la fonction si rien n'est entré (attention à l'ordre)
+**Visibilité** **Scope**
+**Durée de vie**
+**Récursivité**
+**Cas trivial**
+**Opération** action effectuée sur des données
+**Expression** ce qui renvoie une valeur (opération ou non)
+**lvalue** localisation value
+**rvalue** result value
+**Opérateur d’affectation** `=` `<<` `>>`
+**Stream**
 **VCS version control system**
-**Git**
 **Versioning**
 
+CMakeLists.txt
+
+# Les erreurs possibles**
+1. Erreurs de compilation / syntaxe
+2. Erreurs d'édition de liens
+  - exemple, deux fichiers qui ont une fonction de même nom
+3. Erreurs d'exécution,
+  - exemple out_of_range, ouais.at(10) quand ouais length < 10
+  - ça fait pas ce qu'on veut (runtime error, runtime parce que "pendant l'exécution" (?))
+4. Erreurs de logique
+  - exemple, somme = a -b
+
+# Incrémentation (décrémentation)
+~~~cpp
+int compteur = 42;
+compteur++;              // compteur vaut 43, postfix
+++compteur;              // compteur vaut 44, prefix
+int pre = ++compteur;    // compteur vaut 45
+                         // et pre vaut 45
+int post = compteur++;   // compteur vaut 46
+                         // mais post vaut 45
+int i = 0;
+j = (i++ == 0)
+// i = 1
+// j = 1 (true)
+~~~
+
+# Git
 git init
 git clone https://site.ouais
 git add ouais.cpp
@@ -121,93 +103,93 @@ git merge branche
 git push
 git fetch alias
 git pull
-
 https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests
 
-
-**Incrémentation (décrémentation)**
+# Opérateur trinaire (trilatéral / “vaisseau spatial”)**
+<=>
 ~~~cpp
-int compteur = 42;
-compteur++;              // compteur vaut 43, postfix
-++compteur;              // compteur vaut 44, prefix
-int pre = ++compteur;    // compteur vaut 45
-                         // et pre vaut 45
-int post = compteur++;   // compteur vaut 46
-                         // mais post vaut 45
-
-int i = 0;
-j = (i++ == 0)
-// i = 1
-// j = 1 (true)
+auto result = a <=> b;
+if (result < 0){}
+else if (result == 0){}
+else {}
 ~~~
 
-Opérateur trilatéral / ternaire / “vaisseau spatial” / faire A- B
-<=>
+# Opérareur ternaire
+~~~cpp
+a = (a < b) ? 37 : 77;
+a = (a < b) ? (b < c ? c : b) : a;
+a < b ? (cout << "a est plus petit") : (cout << "a est pas plus petit");
+~~~
 
 # priorité des opérations
-n *= n + 1
-égal
-n = n * (n + 1)
+01. --> ` :: ` Scope resolution
+02. --> ` a++ a-- ` Suffix/postfix increment and decrement
+    --> ` type() type{} ` Functional cast
+    --> ` a() ` Function call
+    --> ` a[] ` Subscript
+    --> ` . -> ` Member access
+03. <-- ` =++a --a ` Prefix increment and decrement
+    <-- ` +a -a ` Unary plus and minus
+    <-- ` ! ~ ` Logical NOT and bitwise NOT
+    <-- ` (type) ` C-style cast
+    <-- ` *a ` Indirection (dereference)
+    <-- ` &a ` Address-of
+    <-- ` sizeof ` Size-of[note 1]
+    <-- ` co_await ` await-expression (C++20)
+    <-- ` new new[] ` Dynamic memory allocation
+    <-- ` delete delete[] ` Dynamic memory deallocation
+04. --> ` .* ->* ` Pointer-to-member
+05. --> ` a*b a/b a%b ` Multiplication, division, and remainder
+06. --> ` a+b a-b ` Addition and subtraction
+07. --> ` << >> ` Bitwise left shift and right shift
+08. --> ` <=> ` Three-way comparison operator (since C++20)
+09. --> ` < <= > >= ` For relational operators < and ≤ and > and ≥ respectively
+10. --> ` == != ` For equality operators = and ≠ respectively
+11. --> ` a&b ` Bitwise AND
+12. --> ` ^ ` Bitwise XOR (exclusive or)
+13. --> ` | ` Bitwise OR (inclusive or)
+14. --> ` && ` Logical AND
+15. --> ` || ` Logical O
+16. <-- ` a?b:c ` Ternary conditional[note 2]--Right-to-left
+    <-- ` throw ` throw operator
+    <-- ` co_yield ` yield-expression (C++20)
+    <-- ` = ` Direct assignment (provided by default for C++ classes)
+    <-- ` =+= -= ` Compound assignment by sum and difference
+    <-- ` *= /= %= ` Compound assignment by product, quotient, and remainder
+    <-- ` <<= >>= ` Compound assignment by bitwise left shift and right shift
+    <-- ` &= ^= |= ` Compound assignment by bitwise AND, XOR, and OR
+17. --> ` , ` Comma
 
 # Google C++ guideline
 
 # Fonctions
-paramètre de la fonction
-paramètre effectif
-comprendre le truc "pas de restriction d'appel si ... conversion implicite si nécessaire"
-## Passage par valeur
-## Passage par référence (pas de copie)
-- variable / constante
-- type
-## Passage par référence constante (pas de copie)
+**Paramètre de la fonction**
+**Paramètre effectif**
+**conversion implicite** argument de mauvais type entré dans une fonction, automatiquement converti ou pas selon
 
 # Conversion
-/!\ Des fois possible, des fois pas /!\ (mais pas compris quand quoi...)
-char a = 65;
-cout << a;
-A
-int a = 'A';
-cout << a;
-65
+~~~cpp
+char a = 65; // A
+int a = 'A'; // 65
+float f = static_cast<float>(i);
+std::string s = to_string(f);
+int i = std::stoi(s);
+float f = std::stof(s);
+int i = static_cast<int>(f);
+std::string s = std::to_string(i);
+~~~
 
 # quitter une fonction
-return a la même fonction qu'un break : ça arrête la fonction
-return d'une fonction void, c'est vraiment encore plus pareil
+`return` a la même fonction qu'un `break` : ça arrête la fonction
+`return` d'une fonction void, c'est vraiment encore plus pareil
 à la fin d'une fonction, la dernière accolade ajoute un return
-fonction void et main, pas besoin de return
-
-**code appelant**
-**passage par valeur**
-**passage par référence**
-la variable __doit__ déjà exister, et être de même type
-**passage par référence constante**
-**passage par pointeur**
-**paramètre effectif**
-**variable locale**
-**lvalue**
-**rvalue**
-**variable globale** visible partout                            et   non détruite
-**variable locale**  visible uniquement là où elle est déclarée puis détruite
-**variable static**  visible uniquement là où elle est déclarée mais non détruite
-**variable externe**
-**constante externe** ?
-**qualificateur**
-**valeur**
-**copie**
-**valeur par défaut** (ou ou non selon global ou local?)
-**visibilité** **scope**
-**durée de vie**
-
-**récursivité**
-**cas trivial**
+fonction `void` et `main`, pas besoin de `return`
 
 # Librairies
 Fichier principal `.cpp`
 Fichier d'entête `.h`
 Fichier de... `.cpp`
 
-# Boucles
-- `do while(a)` VS `while(true) if(a){break}`, quand utiliser quoi ?? Je sais pas...
 # Structure de contrôle
 - switch
 - if else
