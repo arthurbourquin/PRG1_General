@@ -6,17 +6,16 @@ C++20
 **Assemblage**
 - transformation du code objet en code machine exécutable
 **Linkage**
-- édition des liens (regrouper tous les liens, pas pareil que compilation)
+- édition des liens
 - permet d'associer plusieurs fichiers objets pour créer un exécutable
 **Compilation**
-`g++ 01_HelloWorld.cpp -o 01-HelloWorld.exe`
-`g++ -o 01_HelloWorld.cpp 01-HelloWorld.exe`
-`g++ -std=c++20 -o for-each for-each.cpp`
-`g++ -std=c++20 -Wall -Wextra -Wconversion (...) ouais.cpp -o ouais.exe`
 - conversion du code source en code objet
-**Objet**
-**Fonction** bloc de code qui effectue une tâche spécifique
-**Méthode** fonction associée à une classe ou un objet
+`g++ -std=c++20 -o file file.cpp`
+`g++ -std=c++20 -Wall -Wextra -Wconversion -pedantic file.cpp -o file.exe`
+`g++ main.cpp utils.cpp -o my_program` pas besoin de mentionner le .h
+**Objet** instance d'une classe dans la programmation orientée objet
+**Fonction** bloc de code qui effectue une tâche spécifique et ou retourne une valeur
+**Méthode** fonction associée à une classe ou un objet (prog. orienté objet)
 **Librairie** fonctions ou classes pré-écrites
 **Bloc / bloc d'instructions** ensemble d'instructions groupées
 **Passage par valeur**
@@ -33,8 +32,7 @@ C++20
 **Passage par pointeur** utilisation d'adresse
 **Code appelant** code qui appelle une fonction
 **Code appelé** code de la fonction
-**Paramètre effectif** argument réel
-**Paramère pas effectif**
+**Paramètre effectif** argument réel transmis à la fonction
 **Variable globale** visible partout et non détruite
 **Variable locale** visible uniquement là où elle est déclarée puis détruite
 **Variable statique** visible uniquement là où elle est déclarée mais non détruite
@@ -46,11 +44,11 @@ C++20
 **Visibilité** **Scope**
 **Durée de vie**
 **Récursivité**
-**Cas trivial**
+**Cas trivial** cas de base dans une fonction récursive qui permet de terminer la récursion
 **Opération** action effectuée sur des données
 **Expression** ce qui renvoie une valeur (opération ou non)
-**lvalue** localisation value
-**rvalue** result value
+**lvalue** localisation value, expression qui désigne une localisation de mémoire modifiable
+**rvalue** result value, valeur temporaire qui ne correspond pas à une adresse mémoire modifiable
 **Opérateur d’affectation** `=` `<<` `>>`
 **Stream**
 **VCS version control system**
@@ -128,7 +126,7 @@ a < b ? (cout << "a est plus petit") : (cout << "a est pas plus petit");
     --> ` a() ` Function call
     --> ` a[] ` Subscript
     --> ` . -> ` Member access
-03. <-- ` =++a --a ` Prefix increment and decrement
+03. <-- ` ++a --a ` Prefix increment and decrement
     <-- ` +a -a ` Unary plus and minus
     <-- ` ! ~ ` Logical NOT and bitwise NOT
     <-- ` (type) ` C-style cast
@@ -159,6 +157,25 @@ a < b ? (cout << "a est plus petit") : (cout << "a est pas plus petit");
     <-- ` <<= >>= ` Compound assignment by bitwise left shift and right shift
     <-- ` &= ^= |= ` Compound assignment by bitwise AND, XOR, and OR
 17. --> ` , ` Comma
+
+# priorité des opérations - short
+02. --> `  a++ a--      ` Suffix/postfix increment and decrement
+03. <-- `  ++a --a      ` Prefix increment and decrement
+    <-- `  +a -a        ` Unary plus and minus
+    <-- `  !            ` Logical NOT
+05. --> `  * / %        ` Multiplication, division, and remainder
+06. --> `  + -          ` Addition and subtraction
+07. --> `  << >>        ` Bitwise left shift and right shift
+08. --> `  <=>          ` Three-way comparison operator (since C++20)
+09. --> `  < <= > >=    ` For relational operators < and ≤ and > and ≥ respectively
+10. --> `  == !=        ` For equality operators = and ≠ respectively
+14. --> `  &&           ` Logical AND
+15. --> `  ||           ` Logical O
+16. <-- `  a?b:c        ` Ternary conditional[note 2]--Right-to-left
+    <-- `  =            ` Direct assignment (provided by default for C++ classes)
+    <-- `  =+= -=       ` Compound assignment by sum and difference
+    <-- `  *= /= %=     ` Compound assignment by product, quotient, and remainder
+17. --> `  ,            ` Comma
 
 # Google C++ guideline
 

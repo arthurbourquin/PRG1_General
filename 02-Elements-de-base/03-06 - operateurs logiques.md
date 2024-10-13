@@ -11,6 +11,21 @@ Ecrire la condition permettant de tester :
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
 <details>

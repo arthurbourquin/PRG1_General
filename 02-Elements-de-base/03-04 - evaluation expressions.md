@@ -30,20 +30,18 @@ int main() {
    i = 3; j = 2;
    k = ++i > 3 && ++j == 3;
    cout << "E : i = " << i << " j = " << j << " k = " << k << endl;
-     
+
    return EXIT_SUCCESS;
 }
-
-
 ~~~
 
-
-
-
-    
-
-<details>
 <summary>Solution</summary>
+
+321
+421
+431
+420
+431
 
 - A : i = 3 j = 2 k = 1
 - B : i = 4 j = 2 k = 1

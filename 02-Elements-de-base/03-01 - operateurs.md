@@ -2,7 +2,6 @@
 
 Que va afficher le programme C++ suivant ?
 
-
 ~~~cpp
 int i, j, k;
 
@@ -19,7 +18,6 @@ cout << "C : i = " << i << " j = " << j << " k = " << k << endl;
 i = 3; j = 4;
 k = i *= --j;
 cout << "D : i = " << i << " j = " << j << " k = " << k << endl;
-
 ~~~
 
 

@@ -11,7 +11,7 @@ double m = 0;
 
 Que vaut la variable m dans chacun des cas ci-dessous ?
 
-| # | Expréssion           |  m  |
+| # | Expression           |  m  |
 |---| ---------------------|-----|
 | 1 | `m = j / i;`         |     |
 | 2 | `m = y / x;`         |     |
@@ -27,7 +27,7 @@ Que vaut la variable m dans chacun des cas ci-dessous ?
 <details>
 <summary>Solution</summary>
 
-| # | Expréssion           |  m  |
+| # | Expression           |  m  |
 |---| ---------------------|-----|
 | 1 | `m = j / i;`         | 2.0 |
 | 2 | `m = y / x;`         | 2.2 |
