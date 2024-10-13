@@ -84,18 +84,27 @@ int c = 15
 c *= 2
 >30
 
+int a = 5;
 a /= 2
->
+>2
 
-(a > b) ? a :
-b > a) ? b : 0
-given int a = 10, int b = 15
+int a = 10, int b = 15
+(a > b) ? a : (b > a) ? b : 0
+>15
 
-condition ?
-a + b) :
-a - b
+condition ? (a + b) : (a - b)
+>?
 
-result = a++, b += 2, a + b)
-given int a = 1, int b = 2
-
+int a = 1, int b = 2
+result = (a++, b += 2, a + b)
+abo
+1
+ 2
+2
+ 4
+  6
+ab
+24
+>6
 result = b = 2, b + c
+>c?
