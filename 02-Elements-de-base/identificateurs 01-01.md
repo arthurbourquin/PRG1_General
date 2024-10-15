@@ -1,5 +1,36 @@
 # Identificateurs (noms des variables) en c++
 
+
+|`7`                commence par un chiffre
+|`_`                
+|`bond-007`         -
+|`SOS`              
+|`_007`             
+|`james_bond__007` 
+|`james bond`       espace
+|`james_bond_007`   
+|`sOs`              
+|`_007_`            
+|`int`              pris
+|`INT`              
+|`__007`            
+|`tom&jerry`        &
+|`André`            é
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 |`james_bond_007`  | Oui |
 |`james_bond__007` | Oui | Plusieurs _ peuvent se suivre |
 |`sOs`             | Oui |
