@@ -158,24 +158,6 @@ a < b ? (cout << "a est plus petit") : (cout << "a est pas plus petit");
     <-- ` &= ^= |= ` Compound assignment by bitwise AND, XOR, and OR
 17. --> ` , ` Comma
 
-# priorité des opérations - short
-02. --> `  a++ a--      ` Suffix/postfix increment and decrement
-03. <-- `  ++a --a      ` Prefix increment and decrement
-    <-- `  +a -a        ` Unary plus and minus
-    <-- `  !            ` Logical NOT
-05. --> `  * / %        ` Multiplication, division, and remainder
-06. --> `  + -          ` Addition and subtraction
-07. --> `  << >>        ` Bitwise left shift and right shift
-08. --> `  <=>          ` Three-way comparison operator (since C++20)
-09. --> `  < <= > >=    ` For relational operators < and ≤ and > and ≥ respectively
-10. --> `  == !=        ` For equality operators = and ≠ respectively
-14. --> `  &&           ` Logical AND
-15. --> `  ||           ` Logical O
-16. <-- `  a?b:c        ` Ternary conditional[note 2]--Right-to-left
-    <-- `  =            ` Direct assignment (provided by default for C++ classes)
-    <-- `  =+= -=       ` Compound assignment by sum and difference
-    <-- `  *= /= %=     ` Compound assignment by product, quotient, and remainder
-17. --> `  ,            ` Comma
 
 # Google C++ guideline
 
@@ -215,3 +197,21 @@ Fichier de... `.cpp`
   - for each
   - while
   - do while
+
+# fstream
+~~~cpp
+std::ofstream ouais;
+ouais.open("super.txt");
+if(!open) {std::cerr << "Erreur, mec..."; return 1;}
+~~~
+`iostream`      **i_o_stream** input / output stream **objects**
+`istream`       **i___stream** input          stream **objects**
+`ostream`       **__o_stream** output         stream **objects**
+
+`fstream`       **____f_stream** input /output **file** stream
+`ifstream`      **i___f_stream** input         **file** stream
+`ofstream`      **__o_f_stream** output        **file** stream
+
+`stringstream`  **_____string_stream** input / output stream operating on strings
+`istringstream` **is___string_stream** input          stream operating on strings
+`ostringstream` **___o_string_stream** output         stream operating on strings
