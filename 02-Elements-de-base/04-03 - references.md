@@ -1,3 +1,27 @@
+1) Créer une variable `var1` initialisée 1
+2) Créer une référence `ref1` sur `var1`
+3) Créer une référence `ref2` non initialisée
+4) Passer la valeur de `var1` à 2
+5) Passer la valeur de `ref1` à 3
+6) Afficher la valeur de `var1`
+7) Afficher la valeur de `ref1`
+8) A quoi correspond la déclaration de `ref1`
+9) A quoi correspond la déclaration d'une référence constante
+~~~cpp
+int var1 = 1;
+int& ref1 = var1;
+; // illégal
+var1 = 2;
+ref1 = 3;
+cout << var1;
+cout << ref1;
+// c'est l'adresse de var1
+// je sais pas
+~~~
+
+
+
+
 # Références
 
 Coder en C++ les questions suivantes

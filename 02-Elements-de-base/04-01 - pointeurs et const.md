@@ -10,18 +10,24 @@ const int* ptr_j = &j;
 const int* ptr_i_1 = &i;
 int* const ptr_i_2 = &i;
 ~~~
-- Indiquez si les instructions suivantes sont correctes ou pas (génère une erreur) ? 
-- Expliquez votre réponse, 
-- Quelle serait la valeur de i et j si l'instruction est exécutée.
-| # | Instruction | Correcte ? (oui/non) | Explication | i, j |
-|---| ---------- | --------------------- | ----------- | --- |
-| 1 | `*ptr_i = 15;` | | | |
-| 2 | `int *ptr_j_1 = &j;`  | | | |
-| 3 | `ptr_j = ptr_i;`  | | | |
-| 4 | `*ptr_i_1 = 25;` | | | |
-| 5 | `*ptr_i_2 = 30;` | | | |
-| 6 | `ptr_i_1 = &j;` | | | |
-| 7 | `ptr_i_2 = &j;` | | | |
+
+~~~cpp
+
+ptr_i = 15;
+// la valeur pointée par ptr_i est modifiable et modifiée : i vaut 15
+
+int *ptr_j_1 = &j;
+// *ptr_j_1 devrait retourner l'adresse de ptr_j_1 qui n'existe pas...
+// int* ptr_j_1 = &j aurait fonctionné, cela aurait créé un pointeur ptr_j_1 qui pointe vers j
+
+ptr_j = ptr_i;
+// 
+
+*ptr_i_1 = 25;`
+*ptr_i_2 = 30;` 
+ptr_i_1 = &j;` 
+ptr_i_2 = &j;`
+~~~
 <details>
 <summary>Solution</summary>
 | # | Instruction | Correcte ? (oui/non) | Explication | i, j |

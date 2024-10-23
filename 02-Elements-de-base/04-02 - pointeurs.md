@@ -1,3 +1,36 @@
+1) Créer une variable `var1` initialisée 1
+2) Créer une variable `var2` initialisée 2
+3) Créer une constante `cste` initialisée 3
+4) Créer un pointeur non constant `ptr1` non initialisé
+5) Créer un pointeur non constant `ptr2` pointant sur `var2`
+6) Faire pointer `ptr1` sur `var1`
+7) Modifier la valeur pointée par `ptr1` à 2
+8) Afficher "oui" ou "non" selon si `ptr1` et `ptr2` pointent sur la même variable.</br>Ne pas utiliser de `if`
+9) Afficher "oui" ou "non" selon si `ptr1` et `ptr2` pointent sur une valeur identique.</br>Ne pas utiliser de `if`
+10) Afficher l'addresse où se trouve `var1`
+11) Afficher le contenu de `ptr1`</br>Que peut-on dire de cette valeur ?
+12) Afficher l'addresse où se trouve `ptr1`
+13) Faire pointer `ptr1` sur `cste`
+14) Déclarer un pointer non constant `ptr3` sur `cste`
+~~~cpp
+int var1 = 1;
+int var2 = 2;
+const int cste = 3;
+int* ptr1 = nullptr;
+int* ptr2 = &var2;
+*ptr1 = &var1;
+ptr1 = 2;
+cout << boolalpha << (ptr1 == ptr2) << endl;
+cout << boolalpha << (*ptr1 == *ptr2) << endl;
+cout << &var1 << endl;
+cout << ptr1 << endl; // correspond à l'adresse de var1
+cout << *ptr1 <<  endl;
+; // conflit / illégal
+const int* ptr3 = &cste;
+~~~
+
+
+
 # Pointeurs
 
 Coder en C++ les questions suivantes.
