@@ -1,5 +1,3 @@
-// WIP zehr
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -20,8 +18,6 @@ bool lire_fichier(const std::string& fichierACopier){
     return 0;
 }
 
-// truc avec rdbuf()
-
 bool ecrire_fichier(const std::string& fichierACreer) {
     ofstream SkonMeDdans;
     SkonMeDdans.open(fichierACreer, ios::app);
@@ -29,15 +25,19 @@ bool ecrire_fichier(const std::string& fichierACreer) {
         cerr << "Ah ça marche pas !" << endl;
         return false;
     }
-    string text;
+    string OuaisLeTexte;
     const string FinirOuais = "#exit#";
-    cout << "Entrez le texte ouais alors.\n";
-    while(getline(cin, text)) {
-        if(text == FinirOuais) break;
-        fichierACreer << text << endl;
+    cout << "Allez, entrez le texte et entrez '" << FinirOuais << "' pour terminer la saisie. \n";
+    while(getline(cin, OuaisLeTexte)) {
+        if(OuaisLeTexte == FinirOuais) break;
+        SkonMeDdans << OuaisLeTexte << endl;
     }
-// ...
-    return 0;
+
+    SkonMeDdans.close();
+
+    cout << "Ok, super, pas de problèmes et tout, normalement le fichier a été update bien." << endl;
+
+    return true;
 }
 
 int main() {
@@ -47,7 +47,7 @@ int main() {
 
     lire_fichier(fichierACopier);
 
-    ecrire_fichier(fichierACreer);
+    ecrire_fichier(fichierACopier);
 
     return EXIT_SUCCESS;
 }

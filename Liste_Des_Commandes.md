@@ -43,8 +43,9 @@ std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
 std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} // X
 
 #include <iostream>       // Input/Output
-#include <fstream>        // File streams
 #include <string>         // String operations
+#include <iomanip>
+#include <sstream>
 #include <cmath>          // Math functions
 #include <random>         // Random number generation
 #include <chrono>         // Date and time utilities
@@ -55,6 +56,16 @@ std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} 
 #include <iterator>       // Iterator utilities
 #include <numeric>        // Numeric algorithms (accumulate, etc.)
 #include <tuple>          // Tuple support
+
+#include <iostream>       //   input / output          stream
+#include <istream>        //   input                   stream
+#include <ostream>        //   output                  stream
+#include <fstream>        //   input /output   file    stream
+#include <ifstream>       //   input           file    stream
+#include <ofstream>       //   output          file    stream
+#include <sstream>        //   input / output  string  stream
+#include <istringstream>  //   input           string  stream
+#include <ostringstream>  //   output          string  stream
 
 rand() % 10;
 rand() % (max - min + 1) + min;
