@@ -18,7 +18,7 @@ b = a > 0 ? b + a : b - 2 * a;
 ~~~cpp 
 b += a > 0 ? a : -2*a; 
 // plus propre que 
-b = a > 0 ? b + a : b - 2*a; 
+b = a > 0 ? b + a : b - 2*a;
 ~~~
 
 </details>

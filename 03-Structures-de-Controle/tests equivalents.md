@@ -18,7 +18,5 @@ if (prixActuel < 100) {
 }
 ~~~
 
-<details>
-<summary>Solution</summary>
-Non, si prixActuel == 100, la valeur de nouveauPrix diffère. 
-</details>
+`a > 100` n'est pas l'inverse de `a < 100`
+il faudrait faire `a <= 100`

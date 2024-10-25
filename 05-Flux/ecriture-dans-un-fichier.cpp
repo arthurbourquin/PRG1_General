@@ -5,8 +5,10 @@
 
 using namespace std;
 
+string exit_prg = "tschuss";
+
 int main() {
-    cout << "File name: ";
+    cout << "File name (with extension): ";
     string FileName;
     getline(cin, FileName);
     
@@ -16,9 +18,10 @@ int main() {
         return 1;
     }
 
+    cout << "Enter the text to put in the file '" << FileName << "'. Line breaks ar allowed. To end, type '" << exit_prg << "'." << endl;
     string line;
     while(getline(cin, line)) {
-        if(line == "#exit#") {break;}
+        if(line == exit_prg) {break;}
         FileOut << line <<"\n";
     }
 

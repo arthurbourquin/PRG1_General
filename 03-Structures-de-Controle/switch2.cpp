@@ -1,9 +1,3 @@
-/*Réécrivez les extraits de code suivants
-en utilisant exclusivement la structure de
-contrôle `switch`. La variable `a` est de
-type `int`. 
-*/
-
 #include <iostream>
 
 using namespace std;

@@ -42,4 +42,34 @@ int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2"
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
 std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} // X
 
-~~~
+#include <iostream>       // Input/Output
+#include <fstream>        // File streams
+#include <string>         // String operations
+#include <cmath>          // Math functions
+#include <random>         // Random number generation
+#include <chrono>         // Date and time utilities
+#include <array>          // Fixed-size array
+#include <list>           // Doubly linked list
+#include <vector>         // Dynamic array
+#include <algorithm>      // Algorithms (sort, find, etc.)
+#include <iterator>       // Iterator utilities
+#include <numeric>        // Numeric algorithms (accumulate, etc.)
+#include <tuple>          // Tuple support
+
+rand() % 10;
+rand() % (max - min + 1) + min;
+dist_int(i, j); dist_float(f, g); dist_real(f, g); dist_normal(f, g); dist_bernoulli(f);
+
+#include <cstdlib>
+#include <ctime
+srand(static_cast<unsigned int>(time(nullptr)));
+
+
+
+
+
+
+
+algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
+~~~~
+
