@@ -3,6 +3,8 @@
 using namespace std;
 
 int main() {
-    cout << !(1 == 1) << endl;
+    for(int i = 0; i < 20; i++) {
+        cout << i % 4 << " " << i / 4 << " " << i << endl;
+    }
 return EXIT_SUCCESS;
 }

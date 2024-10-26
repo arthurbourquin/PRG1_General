@@ -20,6 +20,7 @@ std::string a = "Hello";
 std::array<double, 4> g = {1.0, 1.5, 3.1415926535, 2.0}; std::array a { 1, 2, 3};
 std::vector<int> h = {1, 2, 3, 4};
 std::tuple<bool, int, float, double, char, string> g = {true, 1, 1.5f, 3.1415926535, 'x', "ouais"};
+to_string(value);
 
 ++i i++
 'a' + 1 = 'b'
@@ -42,30 +43,17 @@ int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2"
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
 std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} // X
 
-#include <iostream>       // Input/Output
+#include <iostream>       // input / iutput        stream  - <istream> <ostream>
+#include <fstream>        // input / output file   stream  - <ifstream> <ofstream>
+#include <sstream>        // input / output string stream  - <istringstream> <ostringstream>
 #include <string>         // String operations
 #include <iomanip>
-#include <sstream>
 #include <cmath>          // Math functions
 #include <random>         // Random number generation
 #include <chrono>         // Date and time utilities
 #include <array>          // Fixed-size array
-#include <list>           // Doubly linked list
 #include <vector>         // Dynamic array
 #include <algorithm>      // Algorithms (sort, find, etc.)
-#include <iterator>       // Iterator utilities
-#include <numeric>        // Numeric algorithms (accumulate, etc.)
-#include <tuple>          // Tuple support
-
-#include <iostream>       //   input / output          stream
-#include <istream>        //   input                   stream
-#include <ostream>        //   output                  stream
-#include <fstream>        //   input /output   file    stream
-#include <ifstream>       //   input           file    stream
-#include <ofstream>       //   output          file    stream
-#include <sstream>        //   input / output  string  stream
-#include <istringstream>  //   input           string  stream
-#include <ostringstream>  //   output          string  stream
 
 rand() % 10;
 rand() % (max - min + 1) + min;
@@ -75,11 +63,10 @@ dist_int(i, j); dist_float(f, g); dist_real(f, g); dist_normal(f, g); dist_berno
 #include <ctime
 srand(static_cast<unsigned int>(time(nullptr)));
 
-
-
-
-
-
+std::setw(5); std::setprecision(4); // non persistants
+std::setfill(' '); std::setfixed; std::scientific; std::showpos; std::right; std::left; std::internal; std::boolalpha;
+cout << setfill(' ') << setw(10) << "Arthur Bourquin" << endl;
+cout << setfill(' ') << setw(10) << fixed << setprecision(2) << 3.37423863986539865 << endl;
 
 algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
 ~~~~
