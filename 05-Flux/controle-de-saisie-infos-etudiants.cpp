@@ -4,6 +4,9 @@
 using namespace std;
 
 string name;
+string unallowedCharForName = "0123456789:;<=>?@[]^_`{|}~";
+string gender;
+string allowedCharForGender = "HFX";
 int age;
 double markMath;
 double markPrg1;
@@ -11,18 +14,21 @@ double average;
 bool accepted;
 string question;
 string invalidInputMessage = "Saisie invalide. ";
-int cA = 10;
+int cA = 15;
 int cB = 10;
-int cC = 15;
-int cD = 10;
+int cC = 10;
 
-bool checkName() {
+void clearCin() {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+}
+
+bool shareElement(string A, string B) {
     bool result = true;
-    string unallowedCharList = "0123456789:;<=>?@[]^_`{|}~";
-    for(int i = 0; i < name.length() * unallowedCharList.length(); i++) {
-        char userChar = name[i / unallowedCharList.length()];
-        char unallowedChar = unallowedCharList[i % unallowedCharList.length()];
-        if(userChar == unallowedChar) {
+    for(int i = 0; i < A.length() * B.length(); i++) {
+        char a = A[i / B.length()];
+        char b = B[i % B.length()];
+        if(a == b) {
             result = false;
             break;
         }
@@ -36,60 +42,95 @@ double getValidValue(string question, double min, double max) {
     cin >> userInput;
     while(cin.fail() || userInput < min || userInput > max){
         cin.clear();
-        cin.ignore();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Saisie incorrecte. " << question;
+        cout << "Saisie incorrecte. Veuillez entrer un nombre entre " << fixed << setprecision(0) << min << " et " << setprecision(0) << max << " : ";
         cin >> userInput;
     }
+    clearCin();
     return userInput;
 }
 
 void printSeparationLine() {
-    int width = cA + cB + cB + cC + cD;
-    for(int i = 0; i < width; i++) {
-        cout << '-';
+    cout << "|";
+    for(int i = 0; i < cA; i++) {cout << '-';}
+    cout << "+";
+    for(int j = 0; j < 3; j++) {
+        for(int i = 0; i < cB; i++) {cout << '-';}
+        cout << "+";
     }
+    for(int i = 0; i < cC; i++) {cout << '-';}
+    cout << "|";
     cout << endl;
 }
 
-string returnAcceptance() {
-    if(accepted == true) {
-        return "Admis.e";
+string returnAcceptance(bool a, string g) {
+    string result;
+    if(a == true) {
+        result = "Admis";
     } else {
-        return "Rejeté.e";
+        result = "Rejeté";
     }
+
+    if(g == "F") {
+        result += "e";
+    } else if(g == "X") {
+        result += ".e";
+    }
+
+    return result;
 }
 
-int main() {
-    question = "Entrez le nom de l'étudiant : ";
+void getName() {
+        question = "Entrez le nom de l'étudiant : ";
     cout << question;
     getline(cin, name);
-    while(!checkName()){
+    while(!shareElement(name, unallowedCharForName)){
         cout << invalidInputMessage << question;
-        cin >> name;    
+        getline(cin, name);
     }
+    if (name.length() > cA) {
+        name = name.substr(0, cA - 3) + "...";
+    }
+}
+void getGender() {
+    question = "Entrez le sexe (pas de mauvais jeux de mots S.V.P.) H ou F ou X : ";
+    cout << question;
+    cin >> gender;
+    while(gender.length() == 1 && shareElement(gender, allowedCharForGender)){
+        cout << invalidInputMessage << question;
+        cin >> gender;    
+    }
+    clearCin();
+}
+int main() {
+
+    getName();
+    getGender();
     age = getValidValue("Entrez l'âge de l'étudiant: ", 0, 100);
     markMath = getValidValue("Entrez la note de mathématique (max. 6): ", 0, 6);
     markPrg1 = getValidValue("Entrez la note de PRG1 (max. 6): ", 0, 6);
     average = (markMath + markPrg1) / 2;
     if(average > 3.75) {accepted = true;} else {accepted = false;}
+
     cout << setfill(' ');
-    cout << setw(cA) << left << "Nom";
-    cout << setw(cB) << right << "Age";
-    cout << setw(cC) << right << "Note Math";
-    cout << setw(cC) << right << "Note PRG1";
-    cout << setw(cD) << right << returnAcceptance();
+    cout << "|";
+    cout << setw(cA) << left << "Nom" << "|";
+    cout << setw(cB) << right << "Age" << "|";
+    cout << setw(cB) << right << "Math" << "|";
+    cout << setw(cB) << right << "PRG1" << "|";
+    cout << setw(cC) << right << returnAcceptance(true, gender) << "|";
     cout << endl;
     printSeparationLine();
-    cout << setw(cA) << left << name;
-    cout << setw(cB) << right << fixed << setprecision(0) << age;
-    cout << setw(cC) << right << fixed << setprecision(1) << markMath;
-    cout << setw(cC) << right << fixed << setprecision(1) << markPrg1;
-    cout << setw(cD) << right; if(accepted == true) {cout << "Oui";} else {cout << "Non";}
+    cout << "|";
+    cout << setw(cA) << left << name << "|";
+    cout << setw(cB) << right << fixed << setprecision(0) << age << "|";
+    cout << setw(cB) << right << fixed << setprecision(1) << markMath << "|";
+    cout << setw(cB) << right << fixed << setprecision(1) << markPrg1 << "|";
+    cout << setw(cC) << right; if(accepted == true) {cout << "Oui";} else {cout << "Non";} cout << "|";
     cout << endl;
     printSeparationLine();
     cout << "Moyenne : " << fixed << setprecision(2) << average << endl;
-    cout << "Résultat : " << returnAcceptance();
+    cout << "Résultat : " << returnAcceptance(accepted, gender);
     cout << endl;
 
     return EXIT_SUCCESS;
@@ -118,4 +159,13 @@ Fouad Hanna        21        4.9           5.6      Oui
 -------------------------------------------------------
 Moyenne : 5.25
 Résultat : Admis
+
+
+
+
+
+Nom         Age      Math      PRG1   Admis.e
+----------------------------------------
+wugfs o...    4       4.0       4.0       Oui
+----------------------------------------
 */

@@ -42,6 +42,7 @@ int i = 0; do {std::cout << i;; i++;} while(i < 10);
 int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2";; break; default:break;}
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
 std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} // X
+0x10ull;
 
 #include <iostream>       // input / iutput        stream  - <istream> <ostream>
 #include <fstream>        // input / output file   stream  - <ifstream> <ofstream>
@@ -69,5 +70,7 @@ cout << setfill(' ') << setw(10) << "Arthur Bourquin" << endl;
 cout << setfill(' ') << setw(10) << fixed << setprecision(2) << 3.37423863986539865 << endl;
 
 algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
+
+
 ~~~~
 
