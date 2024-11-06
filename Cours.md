@@ -215,3 +215,23 @@ if(!open) {std::cerr << "Erreur, mec..."; return 1;}
 `stringstream`  **_____string_stream** input / output stream operating on strings
 `istringstream` **is___string_stream** input          stream operating on strings
 `ostringstream` **___o_string_stream** output         stream operating on strings
+
+
+# IEEE 754
+**format normalisé**
+de 0
+0  0000 0000     0000 0000 0000 0000 0000 000
+à 1
+0  0111 1111 `1` 0000 0000 0000 0000 0000 000
+**format dénormalisé**
+de 1
+0  0111 1111 `1` 0000 0000 0000 0000 0000 000
+à 3.4 e38
+0  1111 1110 `1` 1111 1111 1111 1111 1111 111
+**infini**
+0  1111 1111 `1` 0000 0000 0000 0000 0000 000
+**-infini**
+1  1111 1111 `1` 0000 0000 0000 0000 0000 000
+**NaN**
+0  1111 1111 `1` xxxx xxxx xxxx xxxx xxxx xxx `où au moins un x est un 1`
+1  1111 1111 `1` xxxx xxxx xxxx xxxx xxxx xxx `où au moins un x est un 1`
