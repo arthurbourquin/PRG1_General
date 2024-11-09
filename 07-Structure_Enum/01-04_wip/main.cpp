@@ -1,11 +1,10 @@
 
 #include <iostream>
-#include <cstdlib>
-
 #include "date.h"
 #include "personne.h"
 
 using namespace std;
+
 int main() {
 
    Date uneDate = {30, 10, 2023};

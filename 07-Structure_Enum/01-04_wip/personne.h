@@ -1,8 +1,8 @@
 #ifndef PERSONNE_H
 #define PERSONNE_H
 
-#include <iostream>
-#include <cstdlib>
+#include <string>
+#include "date.h"
 
 struct Personne{
     std::string nom;
@@ -10,6 +10,6 @@ struct Personne{
     Date dateDeNaissance;
 };
 
-void afficher_personne(Personne personne){}
+void afficher_personne(const Personne& personne);
 
 #endif
