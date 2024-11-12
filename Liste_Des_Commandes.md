@@ -16,6 +16,8 @@ int a; char a;
 float a; double a; long a;
 short / long / long long, signed / unsigned
 
+algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
+
 std::string a = "Hello";
 std::array<double, 4> g = {1.0, 1.5, 3.1415926535, 2.0}; std::array a { 1, 2, 3};
 std::vector<int> h = {1, 2, 3, 4};
@@ -26,10 +28,12 @@ to_string(value);
 'a' + 1 = 'b'
 string("Hello") + " world"
 
-a return 7
-&a return 0x7ffee4933868
-*p return 7
-p return 0x7ffee4933868
+int* a = 7
+int& b = a
+a == 7
+&a == 0x7ffee4933868
+*p == 7
+p == 0x7ffee4933868
 
 ::  a++  a--  *a  &a  *  /  %  +  -  <<  >>  <=>  <  <=  >  >=  ==  !=  &&  ||  a?b:c  =  +=  -=  *=  /=  %=  ,
 
@@ -69,7 +73,15 @@ std::setfill(' '); std::setfixed; std::scientific; std::showpos; std::right; std
 cout << setfill(' ') << setw(10) << "Arthur Bourquin" << endl;
 cout << setfill(' ') << setw(10) << fixed << setprecision(2) << 3.37423863986539865 << endl;
 
-algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
+struct A {int a; int b; int c;};
+A abc = {1, 2, 3};
+struct* P = A
+(*P).a == P->a == 1
+
+pair<int,int> AB(int a, int b) {return {a + b, a - b};}
+
+enum Jour {LU, MA, ME, JE, VE, SA, DI};
+
 
 
 ~~~~

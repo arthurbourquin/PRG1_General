@@ -204,17 +204,17 @@ std::ofstream ouais;
 ouais.open("super.txt");
 if(!open) {std::cerr << "Erreur, mec..."; return 1;}
 ~~~
-`iostream`      **i_o_stream** input / output stream **objects**
-`istream`       **i___stream** input          stream **objects**
-`ostream`       **__o_stream** output         stream **objects**
+`iostream`      **_i_o_stream_** input / output stream **objects**
+`istream`       **_i___stream_** input          stream **objects**
+`ostream`       **___o_stream_** output         stream **objects**
 
-`fstream`       **____f_stream** input /output **file** stream
-`ifstream`      **i___f_stream** input         **file** stream
-`ofstream`      **__o_f_stream** output        **file** stream
+`fstream`       **_____f_stream_** input /output **file** stream
+`ifstream`      **_i___f_stream_** input         **file** stream
+`ofstream`      **___o_f_stream_** output        **file** stream
 
-`stringstream`  **_____string_stream** input / output stream operating on strings
-`istringstream` **is___string_stream** input          stream operating on strings
-`ostringstream` **___o_string_stream** output         stream operating on strings
+`stringstream`  **______string_stream_** input / output stream operating on strings
+`istringstream` **_is___string_stream_** input          stream operating on strings
+`ostringstream` **____o_string_stream_** output         stream operating on strings
 
 
 # IEEE 754
@@ -235,3 +235,31 @@ de 1
 **NaN**
 0  1111 1111 `1` xxxx xxxx xxxx xxxx xxxx xxx `où au moins un x est un 1`
 1  1111 1111 `1` xxxx xxxx xxxx xxxx xxxx xxx `où au moins un x est un 1`
+
+
+# Promotion
+
+
+# Constructeur
+string s = ("salut les voitures de courses", 6, 12) = "les voitures"
+
+
+# Contante littérale VS string
+**Constante littérale**
+`"Hello"` est de type `const char*`, constante littérale et pointeur, vers le H (et pas un autre H dans la mémoire).
+Ensuite "ça" lit jusqu'au char `\0` (premier char de la table ASCII)
+Dans la mémoire, `"Hello"` est en fait `Hello\0`
+**string**
+`string s = "Hello"` string de type... `string`
+string est une class avec
+- constante littérale
+- longueur
+- constructeurs
+- fonctions
+- etc.
+Attention aux conversions implicites
+
+Pointeur constant : c'est le pointeur qui est constant
+
+# Constante littérale
+pas compris...
