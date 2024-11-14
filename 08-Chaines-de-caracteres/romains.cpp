@@ -27,7 +27,6 @@ int valeur_du_nombre_romain(string nombre_romain) {
         } else {
             result -= valeur_courante;
         }
-        cout << result << endl;
     }
 
     int valeur_du_dernier_chiffre_romain = valeur_du_chiffre_romain(nombre_romain[nombre_romain.length() - 1]);
@@ -36,7 +35,22 @@ int valeur_du_nombre_romain(string nombre_romain) {
     return result;
 }
 
+void test_de_la_fonction() {
+    cout << "XIV = 14 : " << valeur_du_nombre_romain("XIV") << endl;
+    cout << "LXXV = 75 : " << valeur_du_nombre_romain("LXXV") << endl;
+    cout << "CXXIII = 123 : " << valeur_du_nombre_romain("CXXIII") << endl;
+    cout << "CDXL = 440 : " << valeur_du_nombre_romain("CDXL") << endl;
+    cout << "MMMCMXCIX = 3999 : " << valeur_du_nombre_romain("MMMCMXCIX") << endl;
+    cout << "DCCCXC = 890 : " << valeur_du_nombre_romain("DCCCXC") << endl;
+    cout << "MMXXIV = 2024 : " << valeur_du_nombre_romain("MMXXIV") << endl;
+    cout << "DCCLXXVII = 777 : " << valeur_du_nombre_romain("DCCLXXVII") << endl;
+    cout << "MMMMMMMMMMMMCCCXLV = 12345 : " << valeur_du_nombre_romain("MMMMMMMMMMMMCCCXLV") << endl;
+}
+
 int main() {
+
+    cout << endl;
+    test_de_la_fonction();
     cout << "Entrer un nombre romain : " << endl;
     string s;
     cin >> s;
