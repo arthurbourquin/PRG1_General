@@ -10,7 +10,8 @@ C++20
 - permet d'associer plusieurs fichiers objets pour créer un exécutable
 **Compilation**
 - conversion du code source en code objet
-`g++ -std=c++20 -o file file.cpp`
+`g++ -std=c++11 -o file file.cpp`
+`g++ -std=c++17 -o file file.cpp`
 `g++ -std=c++20 -Wall -Wextra -Wconversion -pedantic file.cpp -o file.exe`
 `g++ main.cpp utils.cpp -o my_program` pas besoin de mentionner le .h
 **Objet** instance d'une classe dans la programmation orientée objet

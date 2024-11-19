@@ -24,8 +24,8 @@ void print_real(Coord_real c) {
 
 DMS real_to_HMS(long double input) {
    int deg = floor(input);
-   int min = floor((input - deg) * 60);
-   long double sec = (input - deg - (min / 60)) * 3600;
+   int min = floor((input - deg) * 60.0);
+   long double sec = (input - deg - (min / 60)) * 3600.0;
    return {deg, min, sec};
 }
 

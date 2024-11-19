@@ -37,28 +37,33 @@ p == 0x7ffee4933868
 
 ::  a++  a--  *a  &a  *  /  %  +  -  <<  >>  <=>  <  <=  >  >=  ==  !=  &&  ||  a?b:c  =  +=  -=  *=  /=  %=  ,
 
+typeid()
+
 a == b ? c : d
 
 for(int i = 0; i < 10; i++) {std::cout << i;}
+for(int e : a) cout << e;
+for(int& e : a) e++;
 int i = 0; while(i < 10){std::cout << i;; i++;}
 int i = 0; while(true){std::cout << i;; i++; if(i > 10) {break;}}
 int i = 0; do {std::cout << i;; i++;} while(i < 10);
 int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2";; break; default:break;}
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
-std::vector<int> V = {1, 2, 3, 4, 5}; for (const auto& v : V) {std::cout << v;} // X
+std::array<int, 3> a = {1, 2, 3};
+std::vector<int> v = {1, 2, 3};
 0x10ull;
 
-#include <iostream>       // input / iutput        stream  - <istream> <ostream>
-#include <fstream>        // input / output file   stream  - <ifstream> <ofstream>
-#include <sstream>        // input / output string stream  - <istringstream> <ostringstream>
-#include <string>         // String operations
+#include <iostream>       // input/iutput        stream  <istream> <ostream>
+#include <fstream>        // input/output file   stream  <ifstream> <ofstream>
+#include <sstream>        // input/output string stream  <istringstream> <ostringstream>
+#include <string>         // string operations
 #include <iomanip>
-#include <cmath>          // Math functions
-#include <random>         // Random number generation
-#include <chrono>         // Date and time utilities
-#include <array>          // Fixed-size array
-#include <vector>         // Dynamic array
-#include <algorithm>      // Algorithms (sort, find, etc.)
+#include <cmath>          // math functions
+#include <random>         // random number generation
+#include <chrono>         // date and time utilities
+#include <array>          // fixed-size array
+#include <vector>         // dynamic array
+#include <algorithm>      // algorithms (sort, find, etc.)
 
 rand() % 10;
 rand() % (max - min + 1) + min;
@@ -80,7 +85,7 @@ struct* P = A
 
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
-enum Jour {LU, MA, ME, JE, VE, SA, DI};
+enum Jour {FAUX, LU, MA, ME, JE, VE, SA, DI}; Jour cool = SA; // SA == 1
 
 
 

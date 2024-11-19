@@ -5,10 +5,10 @@
 using namespace std;
 
 string chercher_et_remplacer(string phrase, string_view a_effacer, string_view a_ajouter) {
-    size_t longueur = a_effacer.length();
     for(int i = 0; i < phrase.length(); i++) {
-        int debut = phrase.find(a_effacer);
-        phrase.replace(debut, longueur, a_ajouter);
+        size_t debut = phrase.find(a_effacer);
+        phrase.replace(debut, a_effacer.length(), a_ajouter);
+        i += a_ajouter.length();
     }
     return phrase;
 }

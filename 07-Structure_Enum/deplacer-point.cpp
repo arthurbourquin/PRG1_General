@@ -1,25 +1,50 @@
+// WIP
+
 #include <iostream>
 
 using namespace std;
 
-enum class Direction {HAUT, BAS, GAUCHE, DROITE};
-
 struct Coord {
-    int x = 0;
-    int y = 0;
+    int x;
+    int y;
 };
 
-using Point = Coord;
+Coord position = {2, 2};
 
-void deplacer(Point& p, Direction dir) {
-    switch(dir) {
-        case Direction::BAS: p.y--; break;
-        case Direction::HAUT: p.y++; break;
-        case Direction::DROITE: p.x++; break;
-        case Direction::GAUCHE: p.x--; break;
+void update_position(Coord move) {
+    position.x += move.x;
+    position.y += move.y;
+}
+
+void render_frame() {
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
+            cout << (i == position.x && j == position.y ? "*" : ",");
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+Coord user_input(char input) {
+    switch(input) {
+        case 'w' : return {0, 1}; break;
+        case 's' : return {0, -1}; break;
+        case 'a' : return {1, 0}; break;
+        case 'd' : return {-1, 0}; break;
+        default : return {0, 0}; break;
     }
 }
 
 int main() {
-    Point p = {0, 0};
+    render_frame();
+    string c_move;
+    while(true) {
+        cin >> c_move;
+        if(c_move == "exit") {break;}
+        update_position(user_input(c_move[0]));
+        render_frame();
+    }
+
+return EXIT_SUCCESS;
 }
