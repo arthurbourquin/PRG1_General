@@ -1,18 +1,18 @@
 #include <iostream>
 #include <array>
 using namespace std;
-using Vec3d = array<double,3>;
+using Vec3d = array<int,3>;
 
 string to_string(Vec3d input) {
-   return ("(" + to_string(input[0]) + "," + to_string(input[1]) + "," + to_string(input[2]));
+   return ("(" + to_string(input[0]) + "," + to_string(input[1]) + "," + to_string(input[2]) + ")");
 }
 
-Vec3d produit(Vec3d input, double fac) {
+Vec3d produit(Vec3d input, int fac) {
    return {input[0] * fac, input[1] * fac, input[2] * fac};
 }
 
-double produit_scalaire(Vec3d a, Vec3d b) {
-   double result;
+int produit_scalaire(Vec3d a, Vec3d b) {
+   int result = 0;
    for(int i = 0; i < a.size() - 1; i++) {
       result += (a[i] * b[i]);
    }
@@ -28,8 +28,8 @@ Vec3d produit_vectoriel(Vec3d a, Vec3d b) {
 }
 
 int main() {
-   Vec3d a = {1., 2., 3.};
-   Vec3d b = {2., 4., 3.};
+   Vec3d a = {1, 2, 3};
+   Vec3d b = {2, 4, 3};
    cout << "a = " << to_string(a) << endl
         << "b = " << to_string(b) << endl;
 
@@ -48,13 +48,3 @@ int main() {
    Vec3d e = produit_vectoriel(a, a);
    cout << "e = a^a = " << to_string(e) << endl;
 }
-
-/*
-a = (1,2,3)
-b = (2,4,3)
-c = a*2 = (2,4,6)
-a.b = 19, a.c = 28, b.c = 38
-d = a^b = (-6,3,0)
-a.d = 0, b.d = 0
-e = a^a = (0,0,0)
-*/

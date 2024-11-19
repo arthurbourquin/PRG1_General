@@ -18,15 +18,16 @@ short / long / long long, signed / unsigned
 
 algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
 
-std::string a = "Hello";
-std::array<double, 4> g = {1.0, 1.5, 3.1415926535, 2.0}; std::array a { 1, 2, 3};
-std::vector<int> h = {1, 2, 3, 4};
+std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
+std::array<int, 3> a = {1, 2, 3};
+std::vector<int> v = {1, 2, 3};
 std::tuple<bool, int, float, double, char, string> g = {true, 1, 1.5f, 3.1415926535, 'x', "ouais"};
-to_string(value);
+to_string(a); string("Hello") + " world"
+#include <vector>
+resize(a,b); clear(); pop_back(); push_back(a); insert(); erase();
 
 ++i i++
 'a' + 1 = 'b'
-string("Hello") + " world"
 
 int* a = 7
 int& b = a
@@ -48,9 +49,6 @@ int i = 0; while(i < 10){std::cout << i;; i++;}
 int i = 0; while(true){std::cout << i;; i++; if(i > 10) {break;}}
 int i = 0; do {std::cout << i;; i++;} while(i < 10);
 int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2";; break; default:break;}
-std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
-std::array<int, 3> a = {1, 2, 3};
-std::vector<int> v = {1, 2, 3};
 0x10ull;
 
 #include <iostream>       // input/iutput        stream  <istream> <ostream>
@@ -86,7 +84,6 @@ struct* P = A
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
 enum Jour {FAUX, LU, MA, ME, JE, VE, SA, DI}; Jour cool = SA; // SA == 1
-
 
 
 ~~~~
