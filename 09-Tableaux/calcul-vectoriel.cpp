@@ -1,19 +1,19 @@
 #include <iostream>
 #include <array>
 using namespace std;
-using Vec3d = array<int,3>;
+using Vec3d = array<double,3>;
 
 string to_string(Vec3d input) {
    return ("(" + to_string(input[0]) + "," + to_string(input[1]) + "," + to_string(input[2]) + ")");
 }
 
-Vec3d produit(Vec3d input, int fac) {
+Vec3d produit(Vec3d input, double fac) {
    return {input[0] * fac, input[1] * fac, input[2] * fac};
 }
 
-int produit_scalaire(Vec3d a, Vec3d b) {
-   int result = 0;
-   for(int i = 0; i < a.size() - 1; i++) {
+double produit_scalaire(Vec3d a, Vec3d b) {
+   double result = 0;
+   for(double i = 0; i < a.size() - 1; i++) {
       result += (a[i] * b[i]);
    }
    return result;   

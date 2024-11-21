@@ -16,8 +16,6 @@ int a; char a;
 float a; double a; long a;
 short / long / long long, signed / unsigned
 
-algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
-
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
 std::array<int, 3> a = {1, 2, 3};
 std::vector<int> v = {1, 2, 3};
@@ -26,8 +24,16 @@ to_string(a); string("Hello") + " world"
 #include <vector>
 resize(a,b); clear(); pop_back(); push_back(a); insert(); erase();
 
+std::string_view; std::span;
+
+std::vector<int> v {1, 2, 3, 4};
+span<int> s1(&v[0], v.size());
+span s2(v);
+
 ++i i++
 'a' + 1 = 'b'
+
+algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
 
 int* a = 7
 int& b = a
