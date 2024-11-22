@@ -5,6 +5,8 @@ commentaire
 #include <iostream> // commentaire
 #include <cstdlib>
 using namespace std;
+using Vec3 = array<int, 3>;
+using Matrice3x3 = array<Vec3, 3>;
 
 int main() {}
 
@@ -23,6 +25,7 @@ std::tuple<bool, int, float, double, char, string> g = {true, 1, 1.5f, 3.1415926
 to_string(a); string("Hello") + " world"
 #include <vector>
 resize(a,b); clear(); pop_back(); push_back(a); insert(); erase();
+getline(cin, variable, ',');
 
 std::string_view; std::span;
 
@@ -49,7 +52,7 @@ typeid()
 a == b ? c : d
 
 for(int i = 0; i < 10; i++) {std::cout << i;}
-for(int e : a) cout << e;
+for(int e : a) cout << e;   
 for(int& e : a) e++;
 int i = 0; while(i < 10){std::cout << i;; i++;}
 int i = 0; while(true){std::cout << i;; i++; if(i > 10) {break;}}
@@ -57,21 +60,19 @@ int i = 0; do {std::cout << i;; i++;} while(i < 10);
 int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2";; break; default:break;}
 0x10ull;
 
-#include <iostream>       // input/iutput        stream  <istream> <ostream>
-#include <fstream>        // input/output file   stream  <ifstream> <ofstream>
-#include <sstream>        // input/output string stream  <istringstream> <ostringstream>
-#include <string>         // string operations
+#include <iostream>
+#include <fstream> // file
+#include <sstream> // string
+#include <string> 
 #include <iomanip>
-#include <cmath>          // math functions
-#include <random>         // random number generation
-#include <chrono>         // date and time utilities
-#include <array>          // fixed-size array
-#include <vector>         // dynamic array
-#include <algorithm>      // algorithms (sort, find, etc.)
+#include <cmath> 
+#include <random>
+#include <array>
+#include <vector>
+#include <span>
 
 rand() % 10;
 rand() % (max - min + 1) + min;
-dist_int(i, j); dist_float(f, g); dist_real(f, g); dist_normal(f, g); dist_bernoulli(f);
 
 #include <cstdlib>
 #include <ctime
@@ -90,7 +91,6 @@ struct* P = A
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
 enum Jour {FAUX, LU, MA, ME, JE, VE, SA, DI}; Jour cool = SA; // SA == 1
-
 
 ~~~~
 

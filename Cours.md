@@ -83,6 +83,13 @@ j = (i++ == 0)
 ~~~
 
 # Git
+
+git add .
+git commit -m "update"
+git push -u origin main
+
+git pull
+
 git init
 git clone https://site.ouais
 git add ouais.cpp
