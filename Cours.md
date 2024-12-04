@@ -26,7 +26,7 @@ C++20
 - la valeur doit déjà exister et être de même type
 - la valeur est modifiée
 **Passage par référence constante**
-- pas de copie
+- pas de copie (si ça peut ! si c'est pas du même type, y a une conversion - donc une copie.)
 - garantie que l'objet ne sera pas modifié par la fonction
 - clareté du code
 - prise en charge des **rvalues**
@@ -48,8 +48,8 @@ C++20
 **Cas trivial** cas de base dans une fonction récursive qui permet de terminer la récursion
 **Opération** action effectuée sur des données
 **Expression** ce qui renvoie une valeur (opération ou non)
-**lvalue** localisation value, expression qui désigne une localisation de mémoire modifiable
-**rvalue** result value, valeur temporaire qui ne correspond pas à une adresse mémoire modifiable
+**lvalue** localisation value, peut être modifié (exemple, variable)
+**rvalue** result value, ne peut pas être modifié (exemple, constantant, littéral)
 **Opérateur d’affectation** `=` `<<` `>>`
 **Stream**
 **VCS version control system**
@@ -271,3 +271,15 @@ Pointeur constant : c'est le pointeur qui est constant
 
 # Constante littérale
 pas compris...
+
+
+# Surcharges
+(type &)  et  (const type &)  ->  ok
+(type)    et  (type &)        ->  erreur
+(type)    et  (const type &)  ->  erreur
+à vérifier...
+
+# Généricité
+beaucoup de choses pas comprises
+instanciation (passer entre chevrons <type>)
+édition des liens

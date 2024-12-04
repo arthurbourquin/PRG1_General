@@ -5,8 +5,6 @@ commentaire
 #include <iostream> // commentaire
 #include <cstdlib>
 using namespace std;
-using Vec3 = array<int, 3>;
-using Matrice3x3 = array<Vec3, 3>;
 
 int main() {}
 
@@ -17,21 +15,57 @@ bool a = true;
 int a; char a;
 float a; double a; long a;
 short / long / long long, signed / unsigned
+3u; 3f; 0x10ull;
 
 std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
-std::array<int, 3> a = {1, 2, 3};
-std::vector<int> v = {1, 2, 3};
-std::tuple<bool, int, float, double, char, string> g = {true, 1, 1.5f, 3.1415926535, 'x', "ouais"};
-to_string(a); string("Hello") + " world"
+to_string(a);
+string("Hello") + " world";
+#include <array>
 #include <vector>
-resize(a,b); clear(); pop_back(); push_back(a); insert(); erase();
-getline(cin, variable, ',');
+std::array<int, 3> a = {1, 2, 3};
 
+vector<int> A(2); → {0, 0};
+vector<int> B(4, 1); → {1, 1, 1, 1};
+vector<int> C{1, 3, 5, 7, 9};
+vector<int> e(C.begin() + 1, C.end() - 1); → {1, 2, 3};
+vector<int> f(a.begin(), b.end()); → Error
+vector<int> g(a.end(), a.begin()); → Error
+vector<int> h(2, v.end()); → Error
+vector<int> i(C.begin(), 2); → Error
+vector<int> j(C.rbegin(), C.rend()); → {9, 7, 5, 3, 1};
+
+                                                s     v     a
+at(i)                                           ✔	✔	✔
+front(), back()                                 ✔	✔	✔
+size()                                          ✔	✔	✔
+begin(), end(), rbegin(), rend()                ✔	✔	✔
+insert(p,v), insert(p,n,v), insert(p,it,it)     ✔	✔	
+clear()                                         ✔	✔	
+pop_back()                                      ✔	✔	
+push_back(v)                                    ✔	✔	
+erase(.begin(), .end())                         ✔	✔	
+resize(s,n)                                     ✔	✔	
+capacity()                                            ✔	✔
+reserve(v)                                            ✔	
+fill(v)                                                     ✔
+substr(p,l)                                                 ✔
+append()                                                    ✔
+find(...), rfind(...)
+find_first_of(...), find_last_of(...)
+find_first_not_of(...), find_last_not_of(...)
+(s/c, p, l)                                                 ✔
+
+
+int t[n];
+int* p = new int [n];
+std::span<int> s1(&v[0], v.size());
+std::span s2(v);
 std::string_view; std::span;
 
-std::vector<int> v {1, 2, 3, 4};
-span<int> s1(&v[0], v.size());
-span s2(v);
+std::tuple<double, string> t = {3.1, "ouais"};
+getline(cin, string, ',');
+
+
 
 ++i i++
 'a' + 1 = 'b'
@@ -58,7 +92,6 @@ int i = 0; while(i < 10){std::cout << i;; i++;}
 int i = 0; while(true){std::cout << i;; i++; if(i > 10) {break;}}
 int i = 0; do {std::cout << i;; i++;} while(i < 10);
 int n = 1; switch(n) {case 1:std::cout << "c1";; break; case 2:std::cout << "c2";; break; default:break;}
-0x10ull;
 
 #include <iostream>
 #include <fstream> // file
@@ -80,8 +113,9 @@ srand(static_cast<unsigned int>(time(nullptr)));
 
 std::setw(5); std::setprecision(4); // non persistants
 std::setfill(' '); std::setfixed; std::scientific; std::showpos; std::right; std::left; std::internal; std::boolalpha;
-cout << setfill(' ') << setw(10) << "Arthur Bourquin" << endl;
-cout << setfill(' ') << setw(10) << fixed << setprecision(2) << 3.37423863986539865 << endl;
+cout << setfill('-') << setw(10) << "string" << endl; // ----string
+cout << setfill('0') << setw(10) << setprecision(3) << 3 << endl; // 003
+cout << fixed << setfill(' ') << setw(10) << setprecision(3) << 17.77777 << endl; // 17.778
 
 struct A {int a; int b; int c;};
 A abc = {1, 2, 3};
@@ -91,6 +125,32 @@ struct* P = A
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
 enum Jour {FAUX, LU, MA, ME, JE, VE, SA, DI}; Jour cool = SA; // SA == 1
+string f(Jour x) {switch(x) {case LU: "fermé"; break;}}
+
+template <typename ouais>
+void f(ouais a, ouais b) {a + b;}
+
+ouais somme(ouais a, ouais b) {return a + b;}
+cout << somme(12, 27)  << endl; // déduction
+cout << somme<int>(12, 27)  << endl;
+cout << somme<double>(1.3, 4.7)  << endl;
+
+using Vec3 = array<int, 3>;
+using Matrice3x3 = array<Vec3, 3>;
+template <typename T> bool estInt(T) {return false;}
+template<> bool estInt<int>(int) {return true;}
+template<> bool estInt<>(int) {return true;}
+template<> bool estInt(int) {return true;}
+
+template <int n, typename T> T multiplier(const T& t) {return (T)n * t;}
+
+template <ostream& out> void afficher(const vector<int> &v) {for(int e : v) out << e << ' ';}
+int main() {vector<int> v{1,2,3}; afficher<cout>(v); afficher<clog>(v);}
+
+template <typename Fn> void pour_tout(const vector<int> & v, Fn fct) {for(int t : v) fct(t);}
+
+f(T,T)      // -> algo de résolution
+f<>(T,T)    // -> algo de résolution sans les types génériques
+f<T,T>(T,T) // -> 
 
 ~~~~
-
