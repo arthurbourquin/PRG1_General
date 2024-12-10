@@ -10,10 +10,9 @@ C++20
 - permet d'associer plusieurs fichiers objets pour créer un exécutable
 **Compilation**
 - conversion du code source en code objet
-`g++ -std=c++11 -o file file.cpp`
-`g++ -std=c++17 -o file file.cpp`
+`g++ -std=c++20 -o file file.cpp`
 `g++ -std=c++20 -Wall -Wextra -Wconversion -pedantic file.cpp -o file.exe`
-`g++ main.cpp utils.cpp -o my_program` pas besoin de mentionner le .h
+Compiler avec des librairies `g++ main.cpp utils.cpp -o my_program` pas besoin de mentionner le .h
 **Objet** instance d'une classe dans la programmation orientée objet
 **Fonction** bloc de code qui effectue une tâche spécifique et ou retourne une valeur
 **Méthode** fonction associée à une classe ou un objet (prog. orienté objet)
@@ -31,19 +30,18 @@ C++20
 - clareté du code
 - prise en charge des **rvalues**
 **Passage par pointeur** utilisation d'adresse
+**Valeur par défaut** valeur utilisée par la fonction si rien n'est entré (attention à l'ordre)
 **Code appelant** code qui appelle une fonction
 **Code appelé** code de la fonction
 **Paramètre effectif** argument réel transmis à la fonction
-**Variable globale** visible partout et non détruite
-**Variable locale** visible uniquement là où elle est déclarée puis détruite
-**Variable statique** visible uniquement là où elle est déclarée mais non détruite
-**Variable externe**
-**Constante externe**
-**Qualificateur** ??
-**Valeur**
-**Valeur par défaut** valeur utilisée par la fonction si rien n'est entré (attention à l'ordre)
 **Visibilité** **Scope**
+**"entité" global** visible partout et non détruite
+**"entité" local** visible uniquement là où elle est déclarée puis détruite
+**"entité" statique** visible uniquement là où elle est déclarée mais non détruite
+**"entité" externe**
+**entité = variable ou fonction**
 **Durée de vie**
+**Qualificateur** ??
 **Récursivité**
 **Cas trivial** cas de base dans une fonction récursive qui permet de terminer la récursion
 **Opération** action effectuée sur des données
@@ -245,12 +243,11 @@ de 1
 1  1111 1111 `1` xxxx xxxx xxxx xxxx xxxx xxx `où au moins un x est un 1`
 
 
-# Promotion
-
-
-# Constructeur
-string s = ("salut les voitures de courses", 6, 12) = "les voitures"
-
+# Initialiser un tableau
+**Constructeur**
+string s = ("salut les voitures de courses", 6, 12); // les voitures
+**Agrégat**
+string s {'s', 'a', 'l', 'u', 't'}; // salut
 
 # Contante littérale VS string
 **Constante littérale**
@@ -258,7 +255,7 @@ string s = ("salut les voitures de courses", 6, 12) = "les voitures"
 Ensuite "ça" lit jusqu'au char `\0` (premier char de la table ASCII)
 Dans la mémoire, `"Hello"` est en fait `Hello\0`
 **string**
-`string s = "Hello"` string de type... `string`
+`string s = "Hello"` string de type `string`
 string est une class avec
 - constante littérale
 - longueur
@@ -267,11 +264,8 @@ string est une class avec
 - etc.
 Attention aux conversions implicites
 
-Pointeur constant : c'est le pointeur qui est constant
-
-# Constante littérale
-pas compris...
-
+# Pointeur constant
+c'est le pointeur qui est constant
 
 # Surcharges
 (type &)  et  (const type &)  ->  ok
@@ -283,3 +277,27 @@ pas compris...
 beaucoup de choses pas comprises
 instanciation (passer entre chevrons <type>)
 édition des liens
+
+# paramètre local / paramètre global
+Le paramètre local prime sur le global ? (il "cache* le global ?)
+-> classes, paramètre et donnée membre de même nom
+
+# OBJET ! ************************************************
+`quote` Un objet c'est une variable de type class. `quote`
+# ********************************************************
+
+# Class, appel implicite et explicite
+
+
+
+
+# Questions et feedbacks
+
+
+`int a = 3;`
+`int b() {return 3;}`
+`a` a une adresse
+`b` a une adresse ?
+
+
+J'aurais voulu voir les chapitres de la fin (typiquement le 11) tout au début de la formation
