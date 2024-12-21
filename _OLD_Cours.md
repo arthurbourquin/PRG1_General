@@ -1,3 +1,12 @@
+
+
+
+
+**C'EST VIEUX, LE NOUVEAU EST SUR GOOGLE DRIVE**
+
+
+
+
 # PRG1
 C++20
 
@@ -19,17 +28,20 @@ Compiler avec des librairies `g++ main.cpp utils.cpp -o my_program` pas besoin d
 **Librairie** fonctions ou classes pré-écrites
 **Bloc / bloc d'instructions** ensemble d'instructions groupées
 **Passage par valeur**
-- copie
+- "Passer une copie de la variable dans la fonction"
 **Passage par référence**
-- pas de copie
-- la valeur doit déjà exister et être de même type
-- la valeur est modifiée
+- "Passer la vraie variable dans la fonction"
+  - pas de copie
+  - la valeur doit déjà exister et être de même type
+  - la valeur est modifiée
 **Passage par référence constante**
-- pas de copie (si ça peut ! si c'est pas du même type, y a une conversion - donc une copie.)
-- garantie que l'objet ne sera pas modifié par la fonction
-- clareté du code
-- prise en charge des **rvalues**
+- "Passer la vraie variable dans la fonction avec garantie de ne pas la modifier"
+  - pas de copie (en fait des fois oui: si c'est pas du même type, y a une conversion (ou promotion) - donc une copie.)
+  - garantie que l'objet ne sera pas modifié par la fonction, si la variable est modifiée, il y a une erreur de compilation
+  - clareté du code
+  - prise en charge des **rvalues**
 **Passage par pointeur** utilisation d'adresse
+- faudrait trouver des exemples, là comme ça j'en ai pas...
 **Valeur par défaut** valeur utilisée par la fonction si rien n'est entré (attention à l'ordre)
 **Code appelant** code qui appelle une fonction
 **Code appelé** code de la fonction

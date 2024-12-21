@@ -3,8 +3,13 @@
 commentaire
 */
 #include <iostream> // commentaire
-#include <cstdlib>
+#include "lib.h"
 using namespace std;
+
+#ifndef LIB_H
+#define LIB_H
+//...
+#endif
 
 int main() {}
 
@@ -153,4 +158,25 @@ f(T,T)      // -> algo de résolution
 f<>(T,T)    // -> algo de résolution sans les types génériques
 f<T,T>(T,T) // -> 
 
-~~~~
+// class a vérifier
+class Point {
+    int x, y, id;
+    static int nb;
+public:
+    Point(int i_x, int i_y) {
+        x = i_x;
+        y = i_y;
+        nb++;
+    }
+    int getX() const {return x;}
+    int getY() const {return y;}
+    static int ptNb() {return nb;}
+};
+
+#include <random>
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_int_distribution<> dist(1, 100);
+// use dist(gen); to generate a random value
+
+~~~
