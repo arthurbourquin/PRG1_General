@@ -1,8 +1,10 @@
 ~~~cpp
-/*
-commentaire
-*/
-#include <iostream> // commentaire
+
+
+
+/* commentaire */
+// commentaire
+#include <iostream>
 #include "lib.h"
 using namespace std;
 
@@ -11,18 +13,45 @@ using namespace std;
 //...
 #endif
 
+
+
 int main() {}
 
-cout << "Hello world" << endl;
-cin >> a;
 
-bool a = true;
+
+cout << "Hello world" << endl;
+cout << "Hello world\n";
+
+
+int number;
+cout << "Enter a number: ";
+while (!(cin >> number)) {
+    cout << "Try again: ";
+    cin.clear(); // Clear error flag
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
+}
+
+string line;
+cout << "Enter multiple lines (type 'end' to stop):\n";
+string lines;
+while (true) {
+    getline(cin, line);
+    if (line == "end") break;
+    lines += line + "\n";
+}
+
+
+
+bool a;
 int a; char a;
 float a; double a; long a;
 short / long / long long, signed / unsigned
-3u; 3f; 0x10ull;
+3L; 3LL; 3U; 3UL; 3ULL; 3F; 3D; 'c'; "str";
+0xff; 07; 0b0101;
 
-std::string s = "Hello";for (const char& ch : s) {std::cout << ch << " ";}
+
+
+std::string s = "Hello"; for (const char& ch : s) {std::cout << ch << " ";}
 to_string(a);
 string("Hello") + " world";
 #include <array>
@@ -129,8 +158,17 @@ struct* P = A
 
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
-enum Jour {FAUX, LU, MA, ME, JE, VE, SA, DI}; Jour cool = SA; // SA == 1
-string f(Jour x) {switch(x) {case LU: "fermé"; break;}}
+#include <iostream>
+using namespace std;
+enum color {orange, green, brown};
+enum class direction {up, down, right, left};
+int main() {
+    color carot = orange;
+    cout << carot << endl;
+    direction earth = direction::left;
+    cout << static_cast<int>(earth) << endl;
+    return 0;
+}
 
 template <typename ouais>
 void f(ouais a, ouais b) {a + b;}
