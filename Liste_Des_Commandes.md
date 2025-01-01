@@ -1,7 +1,4 @@
 ~~~cpp
-
-
-
 /* commentaire */
 // commentaire
 #include <iostream>
@@ -13,16 +10,13 @@ using namespace std;
 //...
 #endif
 
-
-
 int main() {}
-
-
 
 cout << "Hello world" << endl;
 cout << "Hello world\n";
+~~~
 
-
+~~~cpp
 int number;
 cout << "Enter a number: ";
 while (!(cin >> number)) {
