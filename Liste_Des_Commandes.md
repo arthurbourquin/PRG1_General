@@ -17,10 +17,12 @@ cout << "Hello world" << endl;
 cout << "Hello world\n";
 ~~~
 
+
+# cin
 ~~~cpp
 int number;
 cout << "Enter a number: ";
-while (!(cin >> number)) {
+while (!(cin >> number)) { // il utilise cin.good()
     cout << "Try again: ";
     cin.clear(); // Clear error flag
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
@@ -34,55 +36,51 @@ while (true) {
     if (line == "end") break;
     lines += line + "\n";
 }
+~~~
 
 
-
+# Types de base
+~~~cpp
 bool a;
 int a; char a;
 float a; double a; long a;
 short / long / long long, signed / unsigned
 3L; 3LL; 3U; 3UL; 3ULL; 3F; 3D; 'c'; "str";
 0xff; 07; 0b0101;
+~~~
 
 
+# Listes
 
-std::string s = "Hello"; for (const char& ch : s) {std::cout << ch << " ";}
-to_string(a);
-string("Hello") + " world";
+## Strings
+~~~cpp
+cout << "Hello caca prout merde" << endl;
+string s = "Hello";
+cout << string("Hello") + " caca" + " prout" + " merde" << endl;
+string s2 = string("Hello") + " caca" + " prout" + " merde";
+cout << s2 << endl;
+string s3 = s +  " caca" + " prout" + " merde";
+cout << s3 << endl;
+for(const char& c : s) {std::cout << c << " ";} cout << endl;
+for(int i = 0; i < s.size(); ++i) {cout << s.at(i) << " ";} cout << endl;
+for(int i = 0; i < s.size(); ++i) {cout << s.at(s.size() - 1 - i) << " ";} cout << endl;
+for(auto it = s.begin(); it != s.end(); ++it) {std::cout << *it << " ";} cout << endl;
+for(auto it = s.rbegin(); it != s.rend(); ++it) {std::cout << *it << " ";} cout << endl;
+to_string(num);
+~~~
+
+## Array, Vector
+~~~cpp
 #include <array>
 #include <vector>
-std::array<int, 3> a = {1, 2, 3};
-
-vector<int> A(2); → {0, 0};
-vector<int> B(4, 1); → {1, 1, 1, 1};
+array a {1, 2, 3};
+array<int, 3> a = {1, 2, 3};
+vector<int> A(2); // {0, 0}
+vector<int> B(4, 1); // {1, 1, 1, 1}
 vector<int> C{1, 3, 5, 7, 9};
-vector<int> e(C.begin() + 1, C.end() - 1); → {1, 2, 3};
-vector<int> f(a.begin(), b.end()); → Error
-vector<int> g(a.end(), a.begin()); → Error
-vector<int> h(2, v.end()); → Error
-vector<int> i(C.begin(), 2); → Error
-vector<int> j(C.rbegin(), C.rend()); → {9, 7, 5, 3, 1};
+vector<int> e(C.begin() + 1, C.end() - 1); // {1, 2, 3}
+vector<int> j(C.rbegin(), C.rend()); // {9, 7, 5, 3, 1}
 
-                                                s     v     a
-at(i)                                           ✔	✔	✔
-front(), back()                                 ✔	✔	✔
-size()                                          ✔	✔	✔
-begin(), end(), rbegin(), rend()                ✔	✔	✔
-insert(p,v), insert(p,n,v), insert(p,it,it)     ✔	✔	
-clear()                                         ✔	✔	
-pop_back()                                      ✔	✔	
-push_back(v)                                    ✔	✔	
-erase(.begin(), .end())                         ✔	✔	
-resize(s,n)                                     ✔	✔	
-capacity()                                            ✔	✔
-reserve(v)                                            ✔	
-fill(v)                                                     ✔
-substr(p,l)                                                 ✔
-append()                                                    ✔
-find(...), rfind(...)
-find_first_of(...), find_last_of(...)
-find_first_not_of(...), find_last_not_of(...)
-(s/c, p, l)                                                 ✔
 
 
 int t[n];
@@ -97,7 +95,12 @@ getline(cin, string, ',');
 
 
 ++i i++
-'a' + 1 = 'b'
+
+cout << 'a' + 1 << endl; // 98
+cout << 'a' + (char)1 << endl; // 98
+cout << (char)('a' + 1) << endl; // b
+
+
 
 algorithm, array, atomic, bitset, chrono, complex, condition_variable, cctype, cerrno, cmath, cfloat, climits, csetjmp, csignal, cstdlib, cstring, ctime, deque, exception, filesystem, fstream, functional, future, initializer_list, iomanip, iostream, istream, iterator, limits, list, map, memory, mutex, new, numeric, ostream, queue, random, regex, set, shared_mutex, sstream, stack, stdexcept, string, string_view, thread, tuple, type_traits, unordered_map, unordered_set, utility, variant, vector
 
@@ -145,29 +148,55 @@ std::setfill(' '); std::setfixed; std::scientific; std::showpos; std::right; std
 cout << setfill('-') << setw(10) << "string" << endl; // ----string
 cout << setfill('0') << setw(10) << setprecision(3) << 3 << endl; // 003
 cout << fixed << setfill(' ') << setw(10) << setprecision(3) << 17.77777 << endl; // 17.778
+~~~
+
+
+# Class, Struct, Enum
+~~~cpp
+class Point {
+    int x, y;
+    static int nb;
+public:
+    Point(int init_x, int init_y) : x(init_x), y(init_y) { nb++; }
+    Point() : x(0), y(0) { nb++; }
+    Point(const Point& p) : x(p.x), y(p.y) { nb++; }
+    Point& operator=(const Point& other) {
+        if (this == &other) return *this;
+        x = other.x;
+        y = other.y;
+        return *this;
+    }
+    ~Point() { nb--; }
+    int getX() const { return x; }
+    int getY() const { return y; }
+    static int ptNb() { return nb; }
+    friend std::ostream& operator<<(std::ostream& os, const Point& p);
+};
+int Point::nb = 0;
+ostream& operator<<(ostream& os, const Point& p) {
+    os << "Point(" << p.x << ", " << p.y << ")";
+    return os;
+}
+
 
 struct A {int a; int b; int c;};
 A abc = {1, 2, 3};
 struct* P = A
 (*P).a == P->a == 1
 
+
 pair<int,int> AB(int a, int b) {return {a + b, a - b};}
 
-#include <iostream>
-using namespace std;
-enum color {orange, green, brown};
-enum class direction {up, down, right, left};
-int main() {
-    color carot = orange;
-    cout << carot << endl;
-    direction earth = direction::left;
-    cout << static_cast<int>(earth) << endl;
-    return 0;
-}
+
+enum Ouais {ah, ok, pourquoi, cheval};
+enum class Ok {non, chocolat, poivre};
+cout << ok << endl; // 1
+cout << (int)Ok::poivre << endl; // 2
+
+
 
 template <typename ouais>
 void f(ouais a, ouais b) {a + b;}
-
 ouais somme(ouais a, ouais b) {return a + b;}
 cout << somme(12, 27)  << endl; // déduction
 cout << somme<int>(12, 27)  << endl;
@@ -191,20 +220,6 @@ f(T,T)      // -> algo de résolution
 f<>(T,T)    // -> algo de résolution sans les types génériques
 f<T,T>(T,T) // -> 
 
-// class a vérifier
-class Point {
-    int x, y, id;
-    static int nb;
-public:
-    Point(int i_x, int i_y) {
-        x = i_x;
-        y = i_y;
-        nb++;
-    }
-    int getX() const {return x;}
-    int getY() const {return y;}
-    static int ptNb() {return nb;}
-};
 
 #include <random>
 std::random_device rd;
@@ -213,3 +228,33 @@ std::uniform_int_distribution<> dist(1, 100);
 // use dist(gen); to generate a random value
 
 ~~~
+
+
+# File Stream
+~~~cpp
+ofstream file("output.txt");
+file << "Hello, file!" << endl;
+file.close();
+
+ifstream file("output.txt");
+string line;
+while (getline(file, line)) {
+    cout << line << endl;
+}
+file.close();
+
+~~~
+
+
+# Surcharge, Overload
+
+**critère 1** appel sans conversion
+**critère 2** conversion simple
+- ptr à const_ptr
+- ref à const_ref
+- t[] à ptr
+- ptr à t[]
+**critère 3** promotion
+- bool / char / uchar / short / ushort à int
+- float à double
+**critère 4** conversion de type
