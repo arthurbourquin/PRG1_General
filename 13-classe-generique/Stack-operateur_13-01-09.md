@@ -93,7 +93,7 @@ template <typename T, size_t n> bool operator == (const Stack<T, n>& lhs, const 
 
 template <typename T, size_t n = 100>
 class Stack {
-   
+
    friend std::ostream& operator << <>(std::ostream& os, const Stack& s);
    friend bool operator == <>(const Stack& lhs, const Stack& rhs);
 
