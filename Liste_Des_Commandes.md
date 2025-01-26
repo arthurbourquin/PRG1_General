@@ -294,16 +294,25 @@ f<T,T>(T,T) // ->
 
 # File Stream
 ~~~cpp
-ofstream file("output.txt");
-file << "Hello, file!" << endl;
-file.close();
+// output file stream - écraser le contenu
+ofstream outputFile1("ouais.txt");
+outFile << "Première ligne." << endl;
+outputFile1.close();
 
-ifstream file("output.txt");
+// output file stream - ajouter du contenu
+ofstream outputFile2("ouais.txt", ios::app);
+file << "Ligne supplémentaire" << endl;
+outputFile2.close();
+
+// input file stream - lire le contenu
+ifstream inputFile("ouais.txt");
 string line;
-while (getline(file, line)) {
-    cout << line << endl;
-}
-file.close();
+while (getline(file, line)) {cout << line << endl;}
+inputFile.close();
+
+// vérifier si le fichier s'est bien ouvert
+// ou s'il est encore ouvert
+anyFile.is_open();
 ~~~
 
 

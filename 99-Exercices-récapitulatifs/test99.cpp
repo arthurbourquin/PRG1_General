@@ -9,5 +9,11 @@ int main() {
         if(i % 16 == 0) cout << endl;
     }
 
+
+    cout << endl;
+    cout << endl;
+    cout << (int)('A') - (int)('a') << endl;
+    cout << endl;
+
     return 0;
 }
