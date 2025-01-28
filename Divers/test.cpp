@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <numeric>
 using namespace std;
 
 int main() {
 
-    for(int i = 0; i < 256; ++i) {
-        cout << (char)(i) << " ";
-        if(i % 16 == 0) cout << endl;
-    }
+    cout << numeric_limits<long long>::max() << endl;
 
     return 0;
 }

@@ -238,10 +238,10 @@ public:
     int getX() const { return x; }
     int getY() const { return y; }
     static int ptNb() { return nb; }
-    friend std::ostream& operator<<(std::ostream& os, const Point& p);
+    friend std::ostream & operator << (std::ostream & os, const Point & p);
 };
 int Point::nb = 0;
-ostream& operator<<(ostream& os, const Point& p) {
+ostream & operator << (ostream & os, const Point & p) {
     os << "Point(" << p.x << ", " << p.y << ")";
     return os;
 }
