@@ -15,10 +15,9 @@ struct Color {
 struct Coord {
     size_t x;
     size_t y;
+    static const Coord origin;
     Coord(size_t ix, size_t iy) : x(ix), y(iy) {}
 };
-
-static Coord origin(0, 0);
 
 class Image {
     size_t w;
@@ -56,6 +55,8 @@ public:
         }
     }
 };
+
+const Coord Coord::origin{};
 
 int main() {
 

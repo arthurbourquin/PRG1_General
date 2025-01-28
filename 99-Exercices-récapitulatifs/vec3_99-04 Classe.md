@@ -3,7 +3,7 @@
 Ecrire une class Vec3 qui 3 réels en double précision dans une `std::array` privée, et fournit 
 tout ce qui est nécessaire pour permettre que le code ci-dessous compile et affiche le résultant suivant
 
-~~~cpp
+~~~cpp   
 int main() {
    Vec3 v1{};
    cout << "v1 = " << v1 << endl;
