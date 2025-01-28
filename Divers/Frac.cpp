@@ -42,8 +42,8 @@ public:
         return (*this);
     }
 
-    Frac & operator = (const Frac & other) {num = other.num; den = other.den; return (*this)}
-    Frac & operator = (const T2 & other) {num = other; den = 1; return (*this)}
+    Frac & operator = (const Frac & other) {num = other.num; den = other.den; return (*this);}
+    Frac & operator = (const T2 & other) {num = other; den = 1; return (*this);}
     bool operator == (Frac other) {simplify(); other.simplify(); return (num == other.num && den == other.den);}
     bool operator == (short other) {return (T2)num / (T2)den == other;}
 
@@ -126,14 +126,6 @@ int main() {
     b.simplify();
     cout << setw(w) << "b.simplify();" << "    " << b << endl;
     cout << setw(w) << setw(w) << endl;
-
-    Frac d(5, 1);
-    cout << setw(w) << "Frac d(5, 1);" << "    " << d << endl;
-    Frac<int>::show_denum_if_one = false;
-    cout << setw(w) << "Frac<int>::show_denum_if_one = false" << "    " << endl;
-    cout << setw(w) << "d" << "    " << d << endl;
-    Frac<int>::show_denum_if_one = false;
-    cout << setw(w) << endl;
 
     Frac c(5, 7);
     cout << setw(w) << "Frac c(5, 7); c" << "    " << c << endl;
