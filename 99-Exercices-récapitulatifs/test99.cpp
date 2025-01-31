@@ -1,19 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 int main() {
+    string ouais = "uezeuuezeuezzeuezeu";
 
-    for(int i = 0; i < 256; ++i) {
-        cout << (char)(i) << " ";
-        if(i % 16 == 0) cout << endl;
-    }
-
-
-    cout << endl;
-    cout << endl;
-    cout << (int)('A') - (int)('a') << endl;
-    cout << endl;
+    cout << "Avant : " << ouais << endl;
+    sort(ouais.begin(), ouais.end());
+    auto it = unique(ouais.begin(), ouais.end());
+    ouais.erase(it, ouais.end());
+    cout << "Après : " << ouais << endl;
 
     return 0;
 }
