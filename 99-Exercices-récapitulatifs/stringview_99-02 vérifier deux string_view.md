@@ -79,4 +79,79 @@ int main() {
    tester("abcA","cAba");
 }
 ~~~
+
+gpt
+~~~cpp
+#include <iostream>     // Pour l'utilisation de cout et endl
+#include <string>       // Pour la manipulation des objets string
+#include <string_view>  // Pour une gestion plus efficace des chaînes de caractères en lecture seule
+#include <cctype>       // Pour la fonction toupper (conversion en majuscules)
+#include <algorithm>    // Pour transform, sort, et unique
+
+using namespace std;
+
+/**
+ * @brief Transforme une chaîne en majuscules, trie ses caractères par ordre croissant,
+ *        et supprime les doublons.
+ * 
+ * @param s La chaîne de caractères en entrée
+ * @return Une chaîne contenant les caractères triés et sans répétitions
+ */
+string ensemble_trie(string_view s) {
+   // Convertit string_view en string modifiable
+   auto a = string(s);
+   
+   // Transforme tous les caractères en majuscules
+   transform(a.cbegin(), a.cend(), a.begin(), ::toupper);
+   
+   // Trie la chaîne par ordre croissant
+   sort(a.begin(), a.end());
+   
+   // Supprime les caractères dupliqués adjacents
+   a.erase(unique(a.begin(), a.end()), a.end());
+   
+   return a; // Retourne la chaîne transformée
+}
+
+/**
+ * @brief Vérifie si deux chaînes contiennent exactement les mêmes caractères,
+ *        sans répétition, indépendamment de la casse.
+ * 
+ * @param a Première chaîne
+ * @param b Deuxième chaîne
+ * @return true si les deux chaînes sont compatibles, false sinon
+ */
+bool verifier(string_view a, string_view b) {
+   // Transformation des chaînes en ensembles triés sans doublons
+   string ea = ensemble_trie(a);
+   string eb = ensemble_trie(b);
+
+   // Vérifie que chaque chaîne initiale ne comportait pas de caractères en double
+   // et que les ensembles obtenus sont identiques
+   return a.size() == ea.size()
+          and b.size() == eb.size()
+          and ea == eb;
+}
+
+/**
+ * @brief Affiche si deux chaînes sont compatibles selon le critère défini.
+ * 
+ * @param a Première chaîne
+ * @param b Deuxième chaîne
+ */
+void tester(string_view a, string_view b) {
+   cout << '\"' << a << "\" "
+        << (verifier(a, b) ? "" : "in") << "compatible avec "
+        << '\"' << b << '\"' << endl;
+}
+
+int main() {
+   // Teste différentes combinaisons de chaînes
+   tester("abcdef", "FEDBAC");  // Compatible (mêmes lettres, ordre et casse ignorés)
+   tester("abcdef", "xyz123");  // Incompatible (lettres différentes)
+   tester("abcA", "cAba");      // Incompatible (car 'A' apparaît en double)
+
+   return 0;
+}
+~~~
 </details>

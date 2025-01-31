@@ -78,9 +78,9 @@ class Vec3 {
 public:
    Vec3() : data(0,0,0) {}
    template<typename Iterator> Vec3(Iterator first, Iterator last);
-   double& operator[](size_t i) { return data[i]; }
-   double operator[](size_t i) const { return data[i]; }
-   Vec3& operator+=(Vec3 const& other);
+   double & operator [] (size_t i)       { return data[i]; }
+   double   operator [] (size_t i) const { return data[i]; }
+   Vec3 & operator += (Vec3 const& other);
    static Vec3 axis(size_t i);
 };
 
@@ -98,7 +98,7 @@ Vec3 Vec3::axis(size_t i) {
    return v;
 }
 
-Vec3& Vec3::operator+=(Vec3 const& other) {
+Vec3 & Vec3::operator += (Vec3 const & other) {
    for (size_t i = 0; i < 3; ++i)
       data.at(i) += other.data.at(i);
    return *this;
